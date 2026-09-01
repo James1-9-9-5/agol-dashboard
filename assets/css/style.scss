@@ -41,28 +41,36 @@ body {
   position: relative;
 }
 
-.page-header::before {
-  content: "";
+.header-branding {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 90px;
-  height: 90px;
-  background-image: url("https://static.wixstatic.com/media/fda2bc_0350c586cbf646b8961633a26b41ba79~mv2.png/v1/crop/x_0,y_155,w_2000,h_1697/fill/w_230,h_196,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2022_GITGAAT_LOGO_FINALS_ARTWORKONLY.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.page-header::after {
-  content: "GITGA'AT\AFirst Nation";
-  white-space: pre;
-  position: absolute;
-  top: 30px;
-  left: 130px;
-  color: #ffffff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.4;
+.header-logo {
+  width: 70px;
+  height: auto;
+}
+
+.header-wordmark {
+  display: flex;
+  flex-direction: column;
   text-align: left;
+}
+
+.wordmark-main {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.wordmark-sub {
+  color: #ffffff;
+  font-style: italic;
+  font-size: 0.95rem;
+  opacity: 0.9;
 }
