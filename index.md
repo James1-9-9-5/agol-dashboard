@@ -39,12 +39,15 @@ title: Hartley Bay Maintenance Management
   }
 
   .dash-thumb.one { background: linear-gradient(135deg, #4a5568, #2d3748); }
-  .dash-thumb.two { background: linear-gradient(135deg, #2b6cb0, #1a365d); }
+  .dash-thumb.two { background-color: #ffffff; }
   .dash-thumb.three { background-color: #aa0000; }
+
   .dash-label {
     padding: 14px 16px;
     font-weight: 600;
     font-size: 1rem;
+    background-color: #171717;
+    color: #ffffff;
   }
 </style>
 Select a dashboard below to open it. You'll be prompted to sign in with your ArcGIS Online account.
