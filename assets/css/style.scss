@@ -28,6 +28,7 @@ body {
 
 .page-header .project-tagline {
   color: #ffffff;
+  opacity: 1;
 }
 
 .page-header .btn {
@@ -76,7 +77,9 @@ body {
   opacity: 0.9;
 }
 
-html, body {
-  overflow-x: hidden;
-  width: 100%;
+main.main-content {
+  box-sizing: border-box;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
 }
