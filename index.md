@@ -16,7 +16,7 @@ title: Hartley Bay Maintenance Management
     width: 260px;
     text-decoration: none;
     color: inherit;
-    border: 4px solid #ffffff;
+    border: 4px solid #000000;
     border-radius: 8px;
     overflow: hidden;
     background: #fff;
