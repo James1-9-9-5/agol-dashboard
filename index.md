@@ -52,16 +52,20 @@ title: Hartley Bay Maintenance Management
 </style>
 
 <div class="dash-grid">
-  <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9" target="_blank" rel="noopener">
-    <div class="dash-thumb one">&#128736;</div>
+
+  <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9">
+    <div class="dash-thumb one">&#128295;</div>
     <div class="dash-label">General Maintenance</div>
   </a>
-  <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971" target="_blank" rel="noopener">
+
+  <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971">
     <div class="dash-thumb two">&#127968;</div>
     <div class="dash-label">Housing Maintenance</div>
   </a>
-    <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971" target="_blank" rel="noopener">
+
+  <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971">
     <div class="dash-thumb three">&#128300;</div>
     <div class="dash-label">MERRF Maintenance</div>
   </a>
+
 </div>
