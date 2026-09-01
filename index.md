@@ -61,7 +61,7 @@ Select a dashboard below to open it. You'll be prompted to sign in with your Arc
     <div class="dash-label">Housing Maintenance</div>
   </a>
     <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971" target="_blank" rel="noopener">
-    <div class="dash-thumb three">&#128203;</div>
+    <div class="dash-thumb three">&#128300;;</div>
     <div class="dash-label">MERRF Maintenance</div>
   </a>
 </div>
