@@ -3,13 +3,24 @@
 
 @import "{{ site.theme }}";
 
+body {
+  background-color: #e5e5e5;
+}
+
 .page-header {
   background-color: #171717;
   background-image: none;
-  color: #c2c2c2;
+  color: #ffffff;
+}
+
+.page-header .project-tagline {
+  color: #ffffff;
 }
 
 .page-header .btn {
-  color: #c2c2c2;
-  border-color: #c2c2c2;
+  display: none;
+}
+
+.site-footer {
+  display: none;
 }
