@@ -54,7 +54,7 @@ title: Hartley Bay Maintenance Management
 <div class="dash-grid">
 
   <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9">
-    <div class="dash-thumb one">&#128295;</div>
+    <div class="dash-thumb one">&#128736;</div>
     <div class="dash-label">General Maintenance</div>
   </a>
 
