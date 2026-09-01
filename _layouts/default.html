@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+  <!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<a id="skip-to-content" href="#content">Skip to the content.</a>
+
+<header class="page-header" role="banner">
+  <div class="header-branding">
+    <img src="https://static.wixstatic.com/media/fda2bc_0350c586cbf646b8961633a26b41ba79~mv2.png/v1/crop/x_0,y_155,w_2000,h_1697/fill/w_230,h_196,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2022_GITGAAT_LOGO_FINALS_ARTWORKONLY.png" alt="Gitga'at First Nation logo" class="header-logo">
+    <div class="header-wordmark">
+      <span class="wordmark-main">GITGA'AT</span>
+      <span class="wordmark-sub">First Nation</span>
+    </div>
+  </div>
+  <h1 class="project-name">{{ page.title | default: site.title }}</h1>
+  <h2 class="project-tagline">{{ page.description | default: site.description }}</h2>
+</header>
+
+<main id="content" class="main-content" role="main">
+  {{ content }}
+</main>
+
+</body>
+</html>
