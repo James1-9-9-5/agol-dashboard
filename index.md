@@ -53,12 +53,12 @@ Select a dashboard below to open it. You'll be prompted to sign in with your Arc
 <div class="dash-grid">
 
   <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9" target="_blank" rel="noopener">
-    <div class="dash-thumb one">&#128202;</div>
+    <div class="dash-thumb one">&#128295;</div>
     <div class="dash-label">Dashboard One</div>
   </a>
 
   <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971" target="_blank" rel="noopener">
-    <div class="dash-thumb two">&#128506;</div>
+    <div class="dash-thumb two">&#127968;</div>
     <div class="dash-label">Dashboard Two</div>
   </a>
 
