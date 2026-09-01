@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hartley Bay: Maintenance Management
+title: Hartley Bay Maintenance Management
 ---
 
 <style>
