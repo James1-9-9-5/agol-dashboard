@@ -51,7 +51,7 @@ title: Hartley Bay Maintenance Management
     color: #ffffff;
   }
 </style>
-Select a dashboard below to open it. You'll be prompted to sign in with your ArcGIS Online account.
+
 <div class="dash-grid">
   <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9" target="_blank" rel="noopener">
     <div class="dash-thumb one">&#128736;</div>
