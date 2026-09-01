@@ -24,6 +24,7 @@ title: Hartley Bay Maintenance Management
   }
 
   .dash-card:hover {
+    text-decoration: none;
     box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     transform: translateY(-2px);
   }
