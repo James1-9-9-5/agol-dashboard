@@ -16,7 +16,7 @@ title: Jimbo's maintenance
     width: 260px;
     text-decoration: none;
     color: inherit;
-    border: 1px solid #d1d5da;
+    border: 4px solid #000;
     border-radius: 8px;
     overflow: hidden;
     background: #fff;
