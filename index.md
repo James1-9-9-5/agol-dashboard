@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Jimbo's maintenance
+title: Hartley Bay: Maintenance Management
 ---
 
 <style>
