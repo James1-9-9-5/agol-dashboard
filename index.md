@@ -23,6 +23,7 @@ title: Hartley Bay Maintenance Management
     transition: box-shadow 0.15s ease, transform 0.15s ease;
     opacity: 0;
     animation: fadeInUp 0.4s ease forwards;
+    cursor: pointer;
   }
   .dash-card:nth-child(1) { animation-delay: 0.05s; }
   .dash-card:nth-child(2) { animation-delay: 0.15s; }
@@ -45,6 +46,14 @@ title: Hartley Bay Maintenance Management
   .dash-card:focus-visible {
     outline: 3px solid #ffffff;
     outline-offset: 3px;
+  }
+  .dash-title {
+    padding: 14px 18px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    background-color: #171717;
+    color: #ffffff;
+    text-align: center;
   }
   .dash-thumb {
     height: 150px;
@@ -69,25 +78,10 @@ title: Hartley Bay Maintenance Management
     font-size: 2.4rem;
     line-height: 1;
   }
-  .dash-label {
-    padding: 16px 18px;
-    font-weight: 600;
-    font-size: 1.05rem;
+  .toggle-row-wrap {
+    padding: 12px 18px 14px;
     background-color: #171717;
     color: #ffffff;
-    text-align: center;
-  }
-  /* Toggle card (General Maintenance) */
-  .dash-card.toggle-card {
-    cursor: pointer;
-  }
-  .toggle-label {
-    padding: 14px 18px 12px;
-  }
-  .toggle-title {
-    font-weight: 600;
-    font-size: 1.05rem;
-    margin-bottom: 8px;
   }
   .toggle-row {
     display: flex;
@@ -147,20 +141,23 @@ title: Hartley Bay Maintenance Management
   }
 </style>
 <div class="dash-grid">
-  <div class="dash-card toggle-card" id="general-card"
+  <div class="dash-card toggle-card"
        data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9"
        data-survey-url="https://arcg.is/1XziXe1">
+    <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general"><span class="icon-wrap">&#128736;</span></div>
-    <div class="dash-label toggle-label">
-      <div class="toggle-title">General Maintenance</div>
+    <div class="toggle-row-wrap">
       <div class="toggle-row">
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">&#8249;</button>
-        <span class="toggle-mode" id="general-mode">Dashboard</span>
+        <span class="toggle-mode">Dashboard</span>
         <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">&#8250;</button>
       </div>
     </div>
   </div>
-  <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971">
+  <div class="dash-card toggle-card"
+       data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971"
+       data-survey-url="https://arcg.is/1XziXe1">
+    <div class="dash-title">Housing Maintenance</div>
     <div class="dash-thumb housing">
       <span class="icon-wrap">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -169,51 +166,69 @@ title: Hartley Bay Maintenance Management
         </svg>
       </span>
     </div>
-    <div class="dash-label">Housing Maintenance</div>
-  </a>
-  <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971">
+    <div class="toggle-row-wrap">
+      <div class="toggle-row">
+        <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">&#8249;</button>
+        <span class="toggle-mode">Dashboard</span>
+        <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">&#8250;</button>
+      </div>
+    </div>
+  </div>
+  <div class="dash-card toggle-card"
+       data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971"
+       data-survey-url="https://arcg.is/1XziXe1">
+    <div class="dash-title">MERRF Maintenance</div>
     <div class="dash-thumb merrf"><span class="icon-wrap">&#128300;&#65038;</span></div>
-    <div class="dash-label">MERRF Maintenance</div>
-  </a>
+    <div class="toggle-row-wrap">
+      <div class="toggle-row">
+        <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">&#8249;</button>
+        <span class="toggle-mode">Dashboard</span>
+        <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">&#8250;</button>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="page-footer">
   <span class="footer-pill">&copy; 2026 Gitga'at First Nation</span>
 </div>
 <script>
   (function () {
-    var card = document.getElementById('general-card');
-    var modeLabel = document.getElementById('general-mode');
-    var arrows = card.querySelectorAll('.arrow-btn');
     var options = ['Dashboard', 'Survey'];
-    var index = 0; // 0 = Dashboard, 1 = Survey
+    var cards = document.querySelectorAll('.toggle-card');
 
-    function currentUrl() {
-      return index === 0
-        ? card.getAttribute('data-dashboard-url')
-        : card.getAttribute('data-survey-url');
-    }
+    cards.forEach(function (card) {
+      var modeLabel = card.querySelector('.toggle-mode');
+      var arrows = card.querySelectorAll('.arrow-btn');
+      var index = 0; // 0 = Dashboard, 1 = Survey
 
-    function render() {
-      modeLabel.textContent = options[index];
-    }
+      function currentUrl() {
+        return index === 0
+          ? card.getAttribute('data-dashboard-url')
+          : card.getAttribute('data-survey-url');
+      }
 
-    arrows.forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-        if (btn.getAttribute('data-dir') === 'next') {
-          index = (index + 1) % options.length;
-        } else {
-          index = (index - 1 + options.length) % options.length;
-        }
-        render();
+      function render() {
+        modeLabel.textContent = options[index];
+      }
+
+      arrows.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+          if (btn.getAttribute('data-dir') === 'next') {
+            index = (index + 1) % options.length;
+          } else {
+            index = (index - 1 + options.length) % options.length;
+          }
+          render();
+        });
       });
-    });
 
-    card.addEventListener('click', function () {
-      window.location.href = currentUrl();
-    });
+      card.addEventListener('click', function () {
+        window.location.href = currentUrl();
+      });
 
-    render();
+      render();
+    });
   })();
 </script>
