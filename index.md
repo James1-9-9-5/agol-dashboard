@@ -27,6 +27,7 @@ title: Hartley Bay Maintenance Management
   .dash-card:nth-child(1) { animation-delay: 0.05s; }
   .dash-card:nth-child(2) { animation-delay: 0.15s; }
   .dash-card:nth-child(3) { animation-delay: 0.25s; }
+  .dash-card:nth-child(4) { animation-delay: 0.35s; }
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -84,6 +85,7 @@ title: Hartley Bay Maintenance Management
   .dash-thumb.general { background-color: #000000; }
   .dash-thumb.housing { background-color: #ffffff; }
   .dash-thumb.merrf   { background-color: #aa0000; }
+  .dash-thumb.inventory { background-color: #d9d9d9; }
 
   .icon-wrap {
     width: 48px;
@@ -248,6 +250,14 @@ title: Hartley Bay Maintenance Management
       </div>
     </div>
   </div>
+
+  <!-- 4. INVENTORY TRACKER CARD (no toggle) -->
+  <a class="dash-card" href="REPLACE_WITH_INVENTORY_URL">
+    <div class="dash-title">Inventory Tracker</div>
+    <div class="dash-thumb inventory">
+      <img src="/assets/images/Warehouse.jpg" alt="Inventory Tracker">
+    </div>
+  </a>
 </div>
 
 <div class="page-footer">
