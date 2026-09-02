@@ -50,14 +50,14 @@ title: Hartley Bay Maintenance Management
     text-align: center;
   }
   
-  /* New Header Color Adjustments */
+  /* Header Color Adjustments */
   .dash-title.housing-header {
     background-color: #ffffff;
     color: #000000;
   }
   .dash-title.merrf-header {
     background-color: #aa0000;
-    color: #ffffff; /* Text color is now white */
+    color: #ffffff;
   }
 
   .dash-thumb {
@@ -110,10 +110,10 @@ title: Hartley Bay Maintenance Management
   }
   .toggle-row-wrap.merrf-toggle {
     background-color: #aa0000;
-    color: #ffffff; /* Text color is now white */
+    color: #ffffff;
   }
   .toggle-row-wrap.merrf-toggle .arrow-btn {
-    color: #ffffff; /* Arrow icon color is now white */
+    color: #ffffff;
   }
 
   .toggle-row {
@@ -177,12 +177,14 @@ title: Hartley Bay Maintenance Management
     }
   }
 </style>
+
 <div class="dash-grid">
+  <!-- ==================== 1. GENERAL MAINTENANCE CARD ==================== -->
   <div class="dash-card toggle-card"
-       data-dashboard-url="https://arcgis.com"
-       data-survey-url="https://arcg.is"
-       data-report-url="https://arcgis.com"
-       data-dataset-url="https://arcgis.com">
+       data-dashboard-url="[https://arcgis.com](https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9#)" <!-- PASTE GENERAL DASHBOARD URL HERE -->
+       data-survey-url="[https://arcg.is](https://arcg.is/1XziXe1)" <!-- PASTE GENERAL SURVEY URL HERE -->
+       data-report-url="[https://arcgis.com](https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2697,53.4226,-129.2346,53.4269)" <!-- PASTE GENERAL REPORT URL HERE -->
+       data-dataset-url="[https://arcgis.com](https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884#data)"> <!-- PASTE GENERAL DATASET URL HERE -->
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
       <img src="/assets/images/BO.jpg" alt="General Maintenance">
@@ -199,12 +201,14 @@ title: Hartley Bay Maintenance Management
       </div>
     </div>
   </div>
+
+  <!-- ==================== 2. HOUSING MAINTENANCE CARD ==================== -->
   <div class="dash-card toggle-card"
-       data-dashboard-url="https://arcgis.com"
-       data-survey-url="https://arcg.is"
-       data-report-url="https://arcgis.com"
-       data-dataset-url="https://arcgis.com"
-       data-box-url="https://tapestryresearch.app.box.com/folder/346256879414">
+       data-dashboard-url="https://arcgis.com" <!-- PASTE HOUSING DASHBOARD URL HERE -->
+       data-survey-url="https://arcg.is" <!-- PASTE HOUSING SURVEY URL HERE -->
+       data-report-url="https://arcgis.com" <!-- PASTE HOUSING REPORT URL HERE -->
+       data-dataset-url="https://arcgis.com" <!-- PASTE HOUSING DATASET URL HERE -->
+       data-box-url="https://arcg.is"> <!-- PASTE HOUSING BOX URL HERE -->
     <div class="dash-title housing-header">Housing Maintenance</div>
     <div class="dash-thumb housing" tabindex="0" role="link">
       <img src="/assets/images/House.jpg" alt="Housing Maintenance">
@@ -221,11 +225,13 @@ title: Hartley Bay Maintenance Management
       </div>
     </div>
   </div>
+
+  <!-- ==================== 3. MERRF MAINTENANCE CARD ==================== -->
   <div class="dash-card toggle-card"
-       data-dashboard-url="https://arcgis.com"
-       data-survey-url="https://arcg.is"
-       data-report-url="https://arcgis.com"
-       data-dataset-url="https://arcgis.com">
+       data-dashboard-url="https://arcgis.com" <!-- PASTE MERRF DASHBOARD URL HERE -->
+       data-survey-url="https://arcg.is" <!-- PASTE MERRF SURVEY URL HERE -->
+       data-report-url="https://arcgis.com" <!-- PASTE MERRF REPORT URL HERE -->
+       data-dataset-url="https://arcgis.com"> <!-- PASTE MERRF DATASET URL HERE -->
     <div class="dash-title merrf-header">MERRF Maintenance</div>
     <div class="dash-thumb merrf" tabindex="0" role="link">
       <img src="/assets/images/MERRF.jpg" alt="MERRF Maintenance">
@@ -243,9 +249,11 @@ title: Hartley Bay Maintenance Management
     </div>
   </div>
 </div>
+
 <div class="page-footer">
   <span class="footer-pill">&copy; 2026 Gitga'at First Nation</span>
 </div>
+
 <script>
   (function () {
     var cards = document.querySelectorAll('.toggle-card');
