@@ -49,6 +49,17 @@ title: Hartley Bay Maintenance Management
     color: #ffffff;
     text-align: center;
   }
+  
+  /* New Header Color Adjustments */
+  .dash-title.housing-header {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .dash-title.merrf-header {
+    background-color: #aa0000;
+    color: #000000;
+  }
+
   .dash-thumb {
     height: 150px;
     width: 100%;
@@ -88,6 +99,23 @@ title: Hartley Bay Maintenance Management
     background-color: #171717;
     color: #ffffff;
   }
+
+  /* Custom Toggle Row Variations */
+  .toggle-row-wrap.housing-toggle {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .toggle-row-wrap.housing-toggle .arrow-btn {
+    color: #000000;
+  }
+  .toggle-row-wrap.merrf-toggle {
+    background-color: #aa0000;
+    color: #000000;
+  }
+  .toggle-row-wrap.merrf-toggle .arrow-btn {
+    color: #000000;
+  }
+
   .toggle-row {
     display: flex;
     align-items: center;
@@ -151,10 +179,10 @@ title: Hartley Bay Maintenance Management
 </style>
 <div class="dash-grid">
   <div class="dash-card toggle-card"
-       data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9"
-       data-survey-url="https://arcg.is/1XziXe1"
-       data-report-url="https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2697,53.4226,-129.2346,53.4269"
-       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
+       data-dashboard-url="https://arcgis.com"
+       data-survey-url="https://arcg.is"
+       data-report-url="https://arcgis.com"
+       data-dataset-url="https://arcgis.com">
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
       <img src="/assets/images/BO.jpg" alt="General Maintenance">
@@ -172,16 +200,17 @@ title: Hartley Bay Maintenance Management
     </div>
   </div>
   <div class="dash-card toggle-card"
-       data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971"
-       data-survey-url="https://arcg.is/1XziXe1"
-       data-report-url="https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2697,53.4226,-129.2346,53.4269"
-       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
-       data-box-url="https://tapestryresearch.app.box.com/folder/346256879414">
-    <div class="dash-title">Housing Maintenance</div>
+       data-dashboard-url="https://arcgis.com"
+       data-survey-url="https://arcg.is"
+       data-report-url="https://arcgis.com"
+       data-dataset-url="https://arcgis.com"
+       data-box-url="https://box.com">
+    <div class="dash-title housing-header">Housing Maintenance</div>
     <div class="dash-thumb housing" tabindex="0" role="link">
       <img src="/assets/images/House.jpg" alt="Housing Maintenance">
     </div>
-    <div class="toggle-row-wrap">
+    <!-- Updated Housing Toggle Wrap -->
+    <div class="toggle-row-wrap housing-toggle">
       <div class="toggle-row">
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
@@ -194,15 +223,16 @@ title: Hartley Bay Maintenance Management
     </div>
   </div>
   <div class="dash-card toggle-card"
-       data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971"
-       data-survey-url="https://arcg.is/1XziXe1"
-       data-report-url="https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2697,53.4226,-129.2346,53.4269"
-       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
-    <div class="dash-title">MERRF Maintenance</div>
+       data-dashboard-url="https://arcgis.com"
+       data-survey-url="https://arcg.is"
+       data-report-url="https://arcgis.com"
+       data-dataset-url="https://arcgis.com">
+    <div class="dash-title merrf-header">MERRF Maintenance</div>
     <div class="dash-thumb merrf" tabindex="0" role="link">
       <img src="/assets/images/MERRF.jpg" alt="MERRF Maintenance">
     </div>
-    <div class="toggle-row-wrap">
+    <!-- Updated MERRF Toggle Wrap -->
+    <div class="toggle-row-wrap merrf-toggle">
       <div class="toggle-row">
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
@@ -254,23 +284,6 @@ title: Hartley Bay Maintenance Management
           render();
         });
       });
-
-      function navigate() {
-        var url = currentUrl();
-        if (url && url !== '#') {
-          window.location.href = url;
-        }
-      }
-
-      thumb.addEventListener('click', navigate);
-      thumb.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          navigate();
-        }
-      });
-
-      render();
     });
   })();
 </script>
