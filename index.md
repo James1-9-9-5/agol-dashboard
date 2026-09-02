@@ -257,7 +257,7 @@ title: Hartley Bay Maintenance Management
   </div>
 
   <!-- 4. INVENTORY TRACKER CARD (no toggle) -->
-  <a class="dash-card" href="REPLACE_WITH_INVENTORY_URL">
+  <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/2c40e298c85b485bba89f43bac6b18ec">
     <div class="dash-title inventory-header">Inventory Tracker</div>
     <div class="dash-thumb inventory">
       <img src="/assets/images/Warehouse.jpg" alt="Inventory Tracker">
