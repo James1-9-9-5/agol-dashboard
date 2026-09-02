@@ -81,9 +81,15 @@ title: Hartley Bay Maintenance Management
     margin-top: 3rem;
     padding-top: 1.5rem;
     text-align: center;
-    font-size: 0.85rem;
+  }
+  .footer-pill {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 999px;
+    background-color: #171717;
     color: #ffffff;
-    opacity: 0.75;
+    font-size: 0.85rem;
+    opacity: 0.9;
   }
   @media screen and (max-width: 600px) {
     .dash-card {
@@ -118,5 +124,5 @@ title: Hartley Bay Maintenance Management
   </a>
 </div>
 <div class="page-footer">
-  &copy; 2026 Gitga'at First Nation
+  <span class="footer-pill">&copy; 2026 Gitga'at First Nation</span>
 </div>
