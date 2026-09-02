@@ -181,10 +181,10 @@ title: Hartley Bay Maintenance Management
 <div class="dash-grid">
   <!-- 1. GENERAL MAINTENANCE CARD -->
   <div class="dash-card toggle-card"
-       data-dashboard-url="https://arcgis.com"
-       data-survey-url="https://arcg.is"
-       data-report-url="https://arcgis.com"
-       data-dataset-url="https://arcgis.com">
+       data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9#"
+       data-survey-url="https://arcg.is/1XziXe1"
+       data-report-url="https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2979,53.4205,-129.2064,53.4291"
+       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
       <img src="/assets/images/BO.jpg" alt="General Maintenance">
@@ -204,11 +204,11 @@ title: Hartley Bay Maintenance Management
 
   <!-- 2. HOUSING MAINTENANCE CARD -->
   <div class="dash-card toggle-card"
-       data-dashboard-url="https://arcgis.com"
-       data-survey-url="https://arcg.is"
-       data-report-url="https://arcgis.com"
-       data-dataset-url="https://arcgis.com"
-       data-box-url="https://box.com">
+       data-dashboard-url="#"
+       data-survey-url="#"
+       data-report-url="#"
+       data-dataset-url="#"
+       data-box-url="#">
     <div class="dash-title housing-header">Housing Maintenance</div>
     <div class="dash-thumb housing" tabindex="0" role="link">
       <img src="/assets/images/House.jpg" alt="Housing Maintenance">
@@ -228,10 +228,10 @@ title: Hartley Bay Maintenance Management
 
   <!-- 3. MERRF MAINTENANCE CARD -->
   <div class="dash-card toggle-card"
-       data-dashboard-url="https://arcgis.com"
-       data-survey-url="https://arcg.is"
-       data-report-url="https://arcgis.com"
-       data-dataset-url="https://arcgis.com">
+       data-dashboard-url="#"
+       data-survey-url="#"
+       data-report-url="#"
+       data-dataset-url="#">
     <div class="dash-title merrf-header">MERRF Maintenance</div>
     <div class="dash-thumb merrf" tabindex="0" role="link">
       <img src="/assets/images/MERRF.jpg" alt="MERRF Maintenance">
@@ -286,8 +286,8 @@ title: Hartley Bay Maintenance Management
       if (thumb) {
         thumb.addEventListener('click', function() {
           var targetUrl = currentUrl();
-          if (targetUrl) {
-            window.open(targetUrl, '_blank');
+          if (targetUrl && targetUrl !== '#') {
+            window.location.href = targetUrl;
           }
         });
         
@@ -295,8 +295,8 @@ title: Hartley Bay Maintenance Management
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             var targetUrl = currentUrl();
-            if (targetUrl) {
-              window.open(targetUrl, '_blank');
+            if (targetUrl && targetUrl !== '#') {
+              window.location.href = targetUrl;
             }
           }
         });
