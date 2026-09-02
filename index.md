@@ -181,10 +181,10 @@ title: Hartley Bay Maintenance Management
 <div class="dash-grid">
   <!-- ==================== 1. GENERAL MAINTENANCE CARD ==================== -->
   <div class="dash-card toggle-card"
-       data-dashboard-url="[https://arcgis.com](https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9#)" <!-- PASTE GENERAL DASHBOARD URL HERE -->
-       data-survey-url="[https://arcg.is](https://arcg.is/1XziXe1)" <!-- PASTE GENERAL SURVEY URL HERE -->
-       data-report-url="[https://arcgis.com](https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2697,53.4226,-129.2346,53.4269)" <!-- PASTE GENERAL REPORT URL HERE -->
-       data-dataset-url="[https://arcgis.com](https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884#data)"> <!-- PASTE GENERAL DATASET URL HERE -->
+       data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9#" <!-- PASTE GENERAL DASHBOARD URL HERE -->
+       data-survey-url="https://arcg.is/1XziXe1" <!-- PASTE GENERAL SURVEY URL HERE -->
+       data-report-url="https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2697,53.4226,-129.2346,53.4269" <!-- PASTE GENERAL REPORT URL HERE -->
+       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884#data"> <!-- PASTE GENERAL DATASET URL HERE -->
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
       <img src="/assets/images/BO.jpg" alt="General Maintenance">
