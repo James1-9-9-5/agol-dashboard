@@ -61,6 +61,11 @@ title: Hartley Bay Maintenance Management
     color: #ffffff;
   }
 
+    .dash-title.inventory-header {
+    background-color: #d9d9d9;
+    color: #000000;
+  }
+
   .dash-thumb {
     height: 150px;
     width: 100%;
@@ -253,7 +258,7 @@ title: Hartley Bay Maintenance Management
 
   <!-- 4. INVENTORY TRACKER CARD (no toggle) -->
   <a class="dash-card" href="REPLACE_WITH_INVENTORY_URL">
-    <div class="dash-title">Inventory Tracker</div>
+    <div class="dash-title inventory-header">Inventory Tracker</div>
     <div class="dash-thumb inventory">
       <img src="/assets/images/Warehouse.jpg" alt="Inventory Tracker">
     </div>
