@@ -60,7 +60,7 @@ title: Hartley Bay Maintenance Management
   </a>
 
   <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971">
-    <div class="dash-thumb">&#9962;</div>
+    <div class="dash-thumb">&#127968;</div>
     <div class="dash-label">Housing Maintenance</div>
   </a>
 
