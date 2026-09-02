@@ -23,7 +23,6 @@ title: Hartley Bay Maintenance Management
     transition: box-shadow 0.15s ease, transform 0.15s ease;
     opacity: 0;
     animation: fadeInUp 0.4s ease forwards;
-    cursor: pointer;
   }
   .dash-card:nth-child(1) { animation-delay: 0.05s; }
   .dash-card:nth-child(2) { animation-delay: 0.15s; }
@@ -39,13 +38,8 @@ title: Hartley Bay Maintenance Management
     }
   }
   .dash-card:hover {
-    text-decoration: none;
     box-shadow: 0 8px 20px rgba(0,0,0,0.35);
     transform: translateY(-3px);
-  }
-  .dash-card:focus-visible {
-    outline: 3px solid #ffffff;
-    outline-offset: 3px;
   }
   .dash-title {
     padding: 14px 18px;
@@ -63,6 +57,11 @@ title: Hartley Bay Maintenance Management
     justify-content: center;
     color: #ffffff;
     background-color: #2d3748;
+    cursor: pointer;
+  }
+  .dash-thumb:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: -3px;
   }
   /* Per-dashboard thumbnail backgrounds */
   .dash-thumb.general { background-color: #000000; }
@@ -87,26 +86,30 @@ title: Hartley Bay Maintenance Management
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
   }
   .arrow-btn {
     background: transparent;
-    border: 1px solid #ffffff;
+    border: none;
     color: #ffffff;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
+    width: auto;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1;
     cursor: pointer;
-    padding: 0;
-    transition: background 0.15s ease;
+    padding: 4px;
+    transition: opacity 0.15s ease;
   }
   .arrow-btn:hover {
-    background: rgba(255,255,255,0.15);
+    opacity: 0.6;
+  }
+  .arrow-btn svg {
+    width: 12px;
+    height: 12px;
+    display: block;
   }
   .toggle-mode {
     font-weight: 500;
@@ -143,22 +146,31 @@ title: Hartley Bay Maintenance Management
 <div class="dash-grid">
   <div class="dash-card toggle-card"
        data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9"
-       data-survey-url="https://arcg.is/1XziXe1">
+       data-survey-url="https://arcg.is/1XziXe1"
+       data-report-url="https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2697,53.4226,-129.2346,53.4269"
+       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
     <div class="dash-title">General Maintenance</div>
-    <div class="dash-thumb general"><span class="icon-wrap">&#128736;</span></div>
+    <div class="dash-thumb general" tabindex="0" role="link"><span class="icon-wrap">&#128736;</span></div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
-        <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">&#8249;</button>
+        <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
+        </button>
         <span class="toggle-mode">Dashboard</span>
-        <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">&#8250;</button>
+        <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
+        </button>
       </div>
     </div>
   </div>
   <div class="dash-card toggle-card"
        data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971"
-       data-survey-url="https://arcg.is/1XziXe1">
+       data-survey-url="https://arcg.is/1XziXe1"
+       data-report-url="https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2697,53.4226,-129.2346,53.4269"
+       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
+       data-box-url="https://tapestryresearch.app.box.com/folder/346256879414">
     <div class="dash-title">Housing Maintenance</div>
-    <div class="dash-thumb housing">
+    <div class="dash-thumb housing" tabindex="0" role="link">
       <span class="icon-wrap">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 11L12 3L21 11" stroke="#171717" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -168,22 +180,32 @@ title: Hartley Bay Maintenance Management
     </div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
-        <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">&#8249;</button>
+        <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
+        </button>
         <span class="toggle-mode">Dashboard</span>
-        <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">&#8250;</button>
+        <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
+        </button>
       </div>
     </div>
   </div>
   <div class="dash-card toggle-card"
        data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971"
-       data-survey-url="https://arcg.is/1XziXe1">
+       data-survey-url="https://arcg.is/1XziXe1"
+       data-report-url="https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2697,53.4226,-129.2346,53.4269"
+       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
     <div class="dash-title">MERRF Maintenance</div>
-    <div class="dash-thumb merrf"><span class="icon-wrap">&#128300;&#65038;</span></div>
+    <div class="dash-thumb merrf" tabindex="0" role="link"><span class="icon-wrap">&#128300;&#65038;</span></div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
-        <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">&#8249;</button>
+        <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
+        </button>
         <span class="toggle-mode">Dashboard</span>
-        <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">&#8250;</button>
+        <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -193,22 +215,26 @@ title: Hartley Bay Maintenance Management
 </div>
 <script>
   (function () {
-    var options = ['Dashboard', 'Survey'];
+    var options = [
+      { key: 'dashboard', label: 'Dashboard' },
+      { key: 'survey', label: 'Survey' },
+      { key: 'report', label: 'Report' },
+      { key: 'dataset', label: 'Dataset' }
+    ];
     var cards = document.querySelectorAll('.toggle-card');
 
     cards.forEach(function (card) {
+      var thumb = card.querySelector('.dash-thumb');
       var modeLabel = card.querySelector('.toggle-mode');
       var arrows = card.querySelectorAll('.arrow-btn');
-      var index = 0; // 0 = Dashboard, 1 = Survey
+      var index = 0;
 
       function currentUrl() {
-        return index === 0
-          ? card.getAttribute('data-dashboard-url')
-          : card.getAttribute('data-survey-url');
+        return card.getAttribute('data-' + options[index].key + '-url');
       }
 
       function render() {
-        modeLabel.textContent = options[index];
+        modeLabel.textContent = options[index].label;
       }
 
       arrows.forEach(function (btn) {
@@ -224,8 +250,19 @@ title: Hartley Bay Maintenance Management
         });
       });
 
-      card.addEventListener('click', function () {
-        window.location.href = currentUrl();
+      function navigate() {
+        var url = currentUrl();
+        if (url && url !== '#') {
+          window.location.href = url;
+        }
+      }
+
+      thumb.addEventListener('click', navigate);
+      thumb.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          navigate();
+        }
       });
 
       render();
