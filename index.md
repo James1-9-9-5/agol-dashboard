@@ -64,11 +64,11 @@ title: Hartley Bay Maintenance Management
     outline-offset: -3px;
   }
   .dash-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
   /* Per-dashboard thumbnail backgrounds */
   .dash-thumb.general { background-color: #000000; }
   .dash-thumb.housing { background-color: #ffffff; }
@@ -157,8 +157,8 @@ title: Hartley Bay Maintenance Management
        data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
-  <img src="/assets/images/BO.jpg" alt="General Maintenance">
-</div>
+      <img src="/assets/images/BO.jpg" alt="General Maintenance">
+    </div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
@@ -179,14 +179,7 @@ title: Hartley Bay Maintenance Management
        data-box-url="https://tapestryresearch.app.box.com/folder/346256879414">
     <div class="dash-title">Housing Maintenance</div>
     <div class="dash-thumb housing" tabindex="0" role="link">
-  <img src="/assets/images/House.jpg" alt="Housing Maintenance">
-</div>
-      <span class="icon-wrap">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 11L12 3L21 11" stroke="#171717" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M5 9.5V20C5 20.5523 5.44772 21 6 21H9C9.55228 21 10 20.5523 10 20V15C10 14.4477 10.4477 14 11 14H13C13.5523 14 14 14.4477 14 15V20C14 20.5523 14.4477 21 15 21H18C18.5523 21 19 20.5523 19 20V9.5" stroke="#171717" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
+      <img src="/assets/images/House.jpg" alt="Housing Maintenance">
     </div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
@@ -207,8 +200,8 @@ title: Hartley Bay Maintenance Management
        data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
     <div class="dash-title">MERRF Maintenance</div>
     <div class="dash-thumb merrf" tabindex="0" role="link">
-  <img src="/assets/images/MERRF.jpg" alt="MERRF Maintenance">
-</div>
+      <img src="/assets/images/MERRF.jpg" alt="MERRF Maintenance">
+    </div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
