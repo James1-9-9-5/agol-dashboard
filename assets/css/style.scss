@@ -89,3 +89,25 @@ main.main-content {
   font-size: 0.95rem;
   opacity: 0.9;
 }
+@media screen and (max-width: 600px) {
+  .page-header {
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .header-branding {
+    top: 12px;
+    left: 12px;
+  }
+
+  .header-logo {
+    width: 50px;
+  }
+
+  .wordmark-main {
+    font-size: 1rem;
+  }
+
+  .wordmark-sub {
+    font-size: 0.8rem;
+  }
+}
