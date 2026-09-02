@@ -50,6 +50,17 @@ title: Hartley Bay Maintenance Management
     color: #ffffff;
     text-align: center;
   }
+    @media screen and (max-width: 600px) {
+    .dash-card {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .dash-grid {
+      gap: 20px;
+      margin-top: 24px;
+    }
+  }
 </style>
 
 <div class="dash-grid">
