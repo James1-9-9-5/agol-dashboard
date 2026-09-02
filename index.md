@@ -57,7 +57,7 @@ title: Hartley Bay Maintenance Management
   }
   .dash-title.merrf-header {
     background-color: #aa0000;
-    color: #000000;
+    color: #ffffff; /* Text color is now white */
   }
 
   .dash-thumb {
@@ -110,10 +110,10 @@ title: Hartley Bay Maintenance Management
   }
   .toggle-row-wrap.merrf-toggle {
     background-color: #aa0000;
-    color: #000000;
+    color: #ffffff; /* Text color is now white */
   }
   .toggle-row-wrap.merrf-toggle .arrow-btn {
-    color: #000000;
+    color: #ffffff; /* Arrow icon color is now white */
   }
 
   .toggle-row {
@@ -204,12 +204,11 @@ title: Hartley Bay Maintenance Management
        data-survey-url="https://arcg.is"
        data-report-url="https://arcgis.com"
        data-dataset-url="https://arcgis.com"
-       data-box-url="https://box.com">
+       data-box-url="https://arcg.is">
     <div class="dash-title housing-header">Housing Maintenance</div>
     <div class="dash-thumb housing" tabindex="0" role="link">
       <img src="/assets/images/House.jpg" alt="Housing Maintenance">
     </div>
-    <!-- Updated Housing Toggle Wrap -->
     <div class="toggle-row-wrap housing-toggle">
       <div class="toggle-row">
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
@@ -231,7 +230,6 @@ title: Hartley Bay Maintenance Management
     <div class="dash-thumb merrf" tabindex="0" role="link">
       <img src="/assets/images/MERRF.jpg" alt="MERRF Maintenance">
     </div>
-    <!-- Updated MERRF Toggle Wrap -->
     <div class="toggle-row-wrap merrf-toggle">
       <div class="toggle-row">
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
@@ -250,15 +248,20 @@ title: Hartley Bay Maintenance Management
 </div>
 <script>
   (function () {
-    var options = [
-      { key: 'dashboard', label: 'Dashboard' },
-      { key: 'survey', label: 'Survey' },
-      { key: 'report', label: 'Report' },
-      { key: 'dataset', label: 'Dataset' }
-    ];
     var cards = document.querySelectorAll('.toggle-card');
 
     cards.forEach(function (card) {
+      var options = [
+        { key: 'dashboard', label: 'Dashboard' },
+        { key: 'survey', label: 'Survey' },
+        { key: 'report', label: 'Report' },
+        { key: 'dataset', label: 'Dataset' }
+      ];
+
+      if (card.hasAttribute('data-box-url')) {
+        options.push({ key: 'box', label: 'Box' });
+      }
+
       var thumb = card.querySelector('.dash-thumb');
       var modeLabel = card.querySelector('.toggle-mode');
       var arrows = card.querySelectorAll('.arrow-btn');
