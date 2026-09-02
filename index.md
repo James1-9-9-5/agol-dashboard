@@ -77,6 +77,50 @@ title: Hartley Bay Maintenance Management
     color: #ffffff;
     text-align: center;
   }
+  /* Toggle card (General Maintenance) */
+  .dash-card.toggle-card {
+    cursor: pointer;
+  }
+  .toggle-label {
+    padding: 14px 18px 12px;
+  }
+  .toggle-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .arrow-btn {
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.15s ease;
+  }
+  .arrow-btn:hover {
+    background: rgba(255,255,255,0.15);
+  }
+  .toggle-mode {
+    font-weight: 500;
+    font-size: 0.9rem;
+    opacity: 0.85;
+    min-width: 70px;
+    text-align: center;
+  }
   .page-footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
@@ -103,10 +147,19 @@ title: Hartley Bay Maintenance Management
   }
 </style>
 <div class="dash-grid">
-  <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9">
+  <div class="dash-card toggle-card" id="general-card"
+       data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9"
+       data-survey-url="https://arcg.is/1XziXe1">
     <div class="dash-thumb general"><span class="icon-wrap">&#128736;</span></div>
-    <div class="dash-label">General Maintenance</div>
-  </a>
+    <div class="dash-label toggle-label">
+      <div class="toggle-title">General Maintenance</div>
+      <div class="toggle-row">
+        <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">&#8249;</button>
+        <span class="toggle-mode" id="general-mode">Dashboard</span>
+        <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">&#8250;</button>
+      </div>
+    </div>
+  </div>
   <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971">
     <div class="dash-thumb housing">
       <span class="icon-wrap">
@@ -126,3 +179,41 @@ title: Hartley Bay Maintenance Management
 <div class="page-footer">
   <span class="footer-pill">&copy; 2026 Gitga'at First Nation</span>
 </div>
+<script>
+  (function () {
+    var card = document.getElementById('general-card');
+    var modeLabel = document.getElementById('general-mode');
+    var arrows = card.querySelectorAll('.arrow-btn');
+    var options = ['Dashboard', 'Survey'];
+    var index = 0; // 0 = Dashboard, 1 = Survey
+
+    function currentUrl() {
+      return index === 0
+        ? card.getAttribute('data-dashboard-url')
+        : card.getAttribute('data-survey-url');
+    }
+
+    function render() {
+      modeLabel.textContent = options[index];
+    }
+
+    arrows.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        if (btn.getAttribute('data-dir') === 'next') {
+          index = (index + 1) % options.length;
+        } else {
+          index = (index - 1 + options.length) % options.length;
+        }
+        render();
+      });
+    });
+
+    card.addEventListener('click', function () {
+      window.location.href = currentUrl();
+    });
+
+    render();
+  })();
+</script>
