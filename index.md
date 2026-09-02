@@ -204,7 +204,7 @@ title: Hartley Bay Maintenance Management
        data-survey-url="https://arcg.is"
        data-report-url="https://arcgis.com"
        data-dataset-url="https://arcgis.com"
-       data-box-url="https://arcg.is">
+       data-box-url="https://tapestryresearch.app.box.com/folder/346256879414">
     <div class="dash-title housing-header">Housing Maintenance</div>
     <div class="dash-thumb housing" tabindex="0" role="link">
       <img src="/assets/images/House.jpg" alt="Housing Maintenance">
