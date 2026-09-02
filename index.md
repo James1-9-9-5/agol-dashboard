@@ -187,11 +187,11 @@ title: Hartley Bay Maintenance Management
 
 <div class="dash-grid">
   <!-- 1. GENERAL MAINTENANCE CARD -->
-  <div class="dash-card toggle-card"
-       data-dashboard-url="https://arcgis.com"
-       data-survey-url="https://arcg.is/1XziXe1"
-       data-report-url="https://arcgis.com"
-       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
+<div class="dash-card toggle-card"
+     data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9"
+     data-survey-url="https://arcg.is/1XziXe1"
+     data-report-url="https://arcgis.com"
+     data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
       <img src="/assets/images/BO.jpg" alt="General Maintenance">
