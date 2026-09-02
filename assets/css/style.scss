@@ -92,12 +92,13 @@ main.main-content {
 }
 @media screen and (max-width: 600px) {
   .page-header {
-    padding: 2rem 1.5rem 3rem;
+    padding: 1.5rem 1.5rem 3rem;
   }
 
   .header-branding {
-    top: 12px;
-    left: 12px;
+    position: static;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
 
   .header-logo {
