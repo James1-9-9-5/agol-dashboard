@@ -222,7 +222,7 @@ title: Hartley Bay Maintenance Management
        data-box-url="https://tapestryresearch.app.box.com/folder/346256879414">
     <div class="dash-title housing-header">Housing Maintenance</div>
     <div class="dash-thumb housing" tabindex="0" role="link">
-      <img src="/assets/images/House.jpg" alt="Housing Maintenance">
+      <img src="/assets/images/HM_Dashboard.jpg" alt="Housing Maintenance">
     </div>
     <div class="toggle-row-wrap housing-toggle">
       <div class="toggle-row">
