@@ -63,7 +63,7 @@ title: Hartley Bay Maintenance Management
     color: #000000 !important;
   }
   #hb-dashboard .dash-title.merrf-header {
-    background-color: #DD787D !important;
+    background-color: #DE353E !important;
     color: #ffffff !important;
   }
   #hb-dashboard .dash-title.inventory-header {
@@ -104,7 +104,7 @@ title: Hartley Bay Maintenance Management
   /* Per-dashboard thumbnail backgrounds */
   #hb-dashboard .dash-thumb.general { background-color: #666666; }
   #hb-dashboard .dash-thumb.housing { background-color: #ffffff; }
-  #hb-dashboard .dash-thumb.merrf   { background-color: #DD787D; }
+  #hb-dashboard .dash-thumb.merrf   { background-color: #DE353E; }
   #hb-dashboard .dash-thumb.inventory { background-color: #d9d9d9; }
 
   #hb-dashboard .icon-wrap {
@@ -133,7 +133,7 @@ title: Hartley Bay Maintenance Management
     color: #000000 !important;
   }
   #hb-dashboard .toggle-row-wrap.merrf-toggle {
-    background-color: #DD787D !important;
+    background-color: #DE353E !important;
     color: #ffffff !important;
   }
   #hb-dashboard .toggle-row-wrap.merrf-toggle .arrow-btn {
