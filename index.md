@@ -192,10 +192,10 @@ title: Hartley Bay Maintenance Management
      data-survey-url="https://arcg.is/1XziXe1"
      data-report-url="https://arcgis.com"
      data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
-     data-dashboard-img="/assets/images/BO.jpg"
-     data-survey-img="/assets/images/FH.jpg"
+     data-dashboard-img="/assets/images/GM_Dashboard.jpg"
+     data-survey-img="/assets/images/GM_Survey.jpg"
      data-report-img="/assets/images/FC.jpg"
-     data-dataset-img="/assets/images/Gym.jpg">
+     data-dataset-img="/assets/images/GM_Dataset.jpg">
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
       <img src="/assets/images/BO.jpg" alt="General Maintenance">
