@@ -269,7 +269,7 @@ title: Hartley Bay Maintenance Management
        data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
     <div class="dash-title merrf-header">MERRF Maintenance</div>
     <div class="dash-thumb merrf" tabindex="0" role="link">
-      <img src="/assets/images/MERRF.jpg" alt="MERRF Maintenance">
+      <img src="/assets/images/MERRF_Dashboard.jpg" alt="MERRF Maintenance">
     </div>
     <div class="toggle-row-wrap merrf-toggle">
       <div class="toggle-row">
