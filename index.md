@@ -107,11 +107,11 @@ title: Hartley Bay Maintenance Management
     font-size: 2.4rem;
     line-height: 1;
   }
-  .toggle-row-wrap {
-    padding: 12px 18px 14px;
-    background-color: #171717;
-    color: #ffffff;
-  }
+.toggle-row-wrap {
+  padding: 12px 18px 14px;
+  background-color: #ffffff;
+  color: #000000;
+}
 
   /* Custom Toggle Row Variations */
   .toggle-row-wrap.housing-toggle {
@@ -158,13 +158,18 @@ title: Hartley Bay Maintenance Management
     height: 12px;
     display: block;
   }
-  .toggle-mode {
-    font-weight: 500;
-    font-size: 0.9rem;
-    opacity: 0.85;
-    min-width: 70px;
-    text-align: center;
-  }
+    
+.toggle-mode {
+  font-weight: 500;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  min-width: 70px;
+  text-align: center;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  padding: 2px 10px;
+}
+    
   .page-footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
