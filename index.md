@@ -194,7 +194,7 @@ title: Hartley Bay Maintenance Management
      data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
      data-dashboard-img="/assets/images/GM_Dashboard.jpg"
      data-survey-img="/assets/images/GM_Survey.jpg"
-     data-report-img="/assets/images/FC.jpg"
+     data-report-img="/assets/images/GM_Report.jpg"
      data-dataset-img="/assets/images/GM_Dataset.jpg">
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
