@@ -79,13 +79,19 @@ title: Hartley Bay Maintenance Management
   .dash-thumb:focus-visible {
     outline: 3px solid #ffffff;
     outline-offset: -3px;
-  }
+    
   .dash-thumb img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
+    opacity: 0;
+    transition: opacity 0.2s ease;
   }
+  .dash-thumb img.loaded {
+    opacity: 1;
+  }
+    
   /* Per-dashboard thumbnail backgrounds */
   .dash-thumb.general { background-color: #666666; }
   .dash-thumb.housing { background-color: #ffffff; }
