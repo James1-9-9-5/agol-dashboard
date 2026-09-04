@@ -87,7 +87,7 @@ title: Hartley Bay Maintenance Management
     display: block;
   }
   /* Per-dashboard thumbnail backgrounds */
-  .dash-thumb.general { background-color: #808080; }
+  .dash-thumb.general { background-color: #666666; }
   .dash-thumb.housing { background-color: #ffffff; }
   .dash-thumb.merrf   { background-color: #aa0000; }
   .dash-thumb.inventory { background-color: #d9d9d9; }
