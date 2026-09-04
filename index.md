@@ -195,7 +195,7 @@ title: Hartley Bay Maintenance Management
      data-dashboard-img="/assets/images/BO.jpg"
      data-survey-img="/assets/images/Church.jpg"
      data-report-img="/assets/images/FC.jpg"
-     data-dataset-img="/assets/images/HC.jpg">
+     data-dataset-img="/assets/images/Gym.jpg"
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
       <img src="/assets/images/BO.jpg" alt="General Maintenance">
