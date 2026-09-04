@@ -83,7 +83,7 @@ title: Hartley Bay Maintenance Management
   .dash-thumb img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
   /* Per-dashboard thumbnail backgrounds */
