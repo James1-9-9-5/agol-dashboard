@@ -288,7 +288,7 @@ title: Hartley Bay Maintenance Management
 <a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/2c40e298c85b485bba89f43bac6b18ec">
   <div class="dash-title inventory-header">Inventory Tracker</div>
   <div class="dash-thumb inventory">
-    <img src="/assets/images/Warehouse.jpg" alt="Inventory Tracker" onload="this.classList.add('loaded')">
+    <img src="/assets/images/Inventory.jpg" alt="Inventory Tracker" onload="this.classList.add('loaded')">
   </div>
 </a>
 </div>
