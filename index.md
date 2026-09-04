@@ -2,32 +2,35 @@
 layout: default
 title: Hartley Bay Maintenance Management
 ---
+<div id="hb-dashboard">
 <style>
-  .dash-grid {
+  #hb-dashboard .dash-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 28px;
     margin-top: 40px;
     justify-content: center;
   }
-  .dash-card {
-    display: block;
+  #hb-dashboard .dash-card {
+    display: flex !important;
+    flex-direction: column !important;
     width: 280px;
     text-decoration: none;
     color: inherit;
     border: 4px solid #ffffff;
     border-radius: 10px;
-    overflow: hidden;
+    overflow: hidden !important;
     background: #fff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     transition: box-shadow 0.15s ease, transform 0.15s ease;
     opacity: 0;
     animation: fadeInUp 0.4s ease forwards;
+    position: relative;
   }
-  .dash-card:nth-child(1) { animation-delay: 0.05s; }
-  .dash-card:nth-child(2) { animation-delay: 0.15s; }
-  .dash-card:nth-child(3) { animation-delay: 0.25s; }
-  .dash-card:nth-child(4) { animation-delay: 0.35s; }
+  #hb-dashboard .dash-card:nth-child(1) { animation-delay: 0.05s; }
+  #hb-dashboard .dash-card:nth-child(2) { animation-delay: 0.15s; }
+  #hb-dashboard .dash-card:nth-child(3) { animation-delay: 0.25s; }
+  #hb-dashboard .dash-card:nth-child(4) { animation-delay: 0.35s; }
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -38,67 +41,73 @@ title: Hartley Bay Maintenance Management
       transform: translateY(0);
     }
   }
-  .dash-card:hover {
+  #hb-dashboard .dash-card:hover {
     box-shadow: 0 8px 20px rgba(0,0,0,0.35);
     transform: translateY(-3px);
   }
-  .dash-title {
-    padding: 14px 18px;
-    font-weight: 600;
-    font-size: 1.05rem;
-    background-color: #171717;
-    color: #ffffff;
-    text-align: center;
+  #hb-dashboard .dash-title {
+    padding: 14px 18px !important;
+    font-weight: 600 !important;
+    font-size: 1.05rem !important;
+    background-color: #171717 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    margin: 0 !important;
+    position: relative;
+    z-index: 2;
   }
-  
+
   /* Header Color Adjustments */
-  .dash-title.housing-header {
-    background-color: #ffffff;
-    color: #000000;
+  #hb-dashboard .dash-title.housing-header {
+    background-color: #ffffff !important;
+    color: #000000 !important;
   }
-  .dash-title.merrf-header {
-    background-color: #aa0000;
-    color: #ffffff;
+  #hb-dashboard .dash-title.merrf-header {
+    background-color: #aa0000 !important;
+    color: #ffffff !important;
+  }
+  #hb-dashboard .dash-title.inventory-header {
+    background-color: #d9d9d9 !important;
+    color: #000000 !important;
   }
 
-    .dash-title.inventory-header {
-    background-color: #d9d9d9;
-    color: #000000;
-  }
-
-  .dash-thumb {
-    height: 150px;
-    width: 100%;
-    display: flex;
+  #hb-dashboard .dash-thumb {
+    height: 150px !important;
+    width: 100% !important;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     color: #ffffff;
     background-color: #2d3748;
     cursor: pointer;
+    overflow: hidden !important;
+    position: relative;
   }
-  .dash-thumb:focus-visible {
+  #hb-dashboard .dash-thumb:focus-visible {
     outline: 3px solid #ffffff;
     outline-offset: -3px;
-    
-  .dash-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
+  }
+
+  #hb-dashboard .dash-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
     opacity: 0;
+    margin: 0 !important;
     transition: opacity 0.2s ease;
   }
-  .dash-thumb img.loaded {
+  #hb-dashboard .dash-thumb img.loaded {
     opacity: 1;
   }
-    
-  /* Per-dashboard thumbnail backgrounds */
-  .dash-thumb.general { background-color: #666666; }
-  .dash-thumb.housing { background-color: #ffffff; }
-  .dash-thumb.merrf   { background-color: #aa0000; }
-  .dash-thumb.inventory { background-color: #d9d9d9; }
 
-  .icon-wrap {
+  /* Per-dashboard thumbnail backgrounds */
+  #hb-dashboard .dash-thumb.general { background-color: #666666; }
+  #hb-dashboard .dash-thumb.housing { background-color: #ffffff; }
+  #hb-dashboard .dash-thumb.merrf   { background-color: #aa0000; }
+  #hb-dashboard .dash-thumb.inventory { background-color: #d9d9d9; }
+
+  #hb-dashboard .icon-wrap {
     width: 48px;
     height: 48px;
     display: flex;
@@ -107,86 +116,93 @@ title: Hartley Bay Maintenance Management
     font-size: 2.4rem;
     line-height: 1;
   }
-  .toggle-row-wrap {
-    padding: 12px 18px 14px;
-    background-color: #171717;
-    color: #ffffff;
+
+  #hb-dashboard .toggle-row-wrap {
+    padding: 12px 18px 14px !important;
+    background-color: #171717 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
   }
 
   /* Custom Toggle Row Variations */
-  .toggle-row-wrap.housing-toggle {
-    background-color: #ffffff;
-    color: #000000;
+  #hb-dashboard .toggle-row-wrap.housing-toggle {
+    background-color: #ffffff !important;
+    color: #000000 !important;
   }
-  .toggle-row-wrap.housing-toggle .arrow-btn {
-    color: #000000;
+  #hb-dashboard .toggle-row-wrap.housing-toggle .arrow-btn {
+    color: #000000 !important;
   }
-  .toggle-row-wrap.merrf-toggle {
-    background-color: #aa0000;
-    color: #ffffff;
+  #hb-dashboard .toggle-row-wrap.merrf-toggle {
+    background-color: #aa0000 !important;
+    color: #ffffff !important;
   }
-  .toggle-row-wrap.merrf-toggle .arrow-btn {
-    color: #ffffff;
+  #hb-dashboard .toggle-row-wrap.merrf-toggle .arrow-btn {
+    color: #ffffff !important;
   }
 
-  .toggle-row {
-    display: flex;
+  #hb-dashboard .toggle-row {
+    display: flex !important;
     align-items: center;
     justify-content: center;
     gap: 12px;
   }
-  .arrow-btn {
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    width: auto;
-    height: auto;
-    display: flex;
+  #hb-dashboard .arrow-btn {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: inherit;
+    width: auto !important;
+    height: auto !important;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
     line-height: 1;
     cursor: pointer;
-    padding: 4px;
+    padding: 4px !important;
+    margin: 0 !important;
     transition: opacity 0.15s ease;
   }
-  .arrow-btn:hover {
+  #hb-dashboard .arrow-btn:hover {
     opacity: 0.6;
   }
-  .arrow-btn svg {
+  #hb-dashboard .arrow-btn svg {
     width: 12px;
     height: 12px;
     display: block;
   }
-  .toggle-mode {
+  #hb-dashboard .toggle-mode {
     font-weight: 500;
     font-size: 0.9rem;
     opacity: 0.85;
     min-width: 70px;
     text-align: center;
   }
-.page-footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
-.footer-pill {
-  display: inline-block;
-  padding: 8px 20px;
-  border-radius: 999px;
-  background-color: #171717;
-  color: #ffffff !important;
-  font-size: 0.85rem;
-  opacity: 0.95;
-}
+  #hb-dashboard .page-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  #hb-dashboard .footer-pill {
+    display: inline-block !important;
+    padding: 8px 20px !important;
+    border-radius: 999px !important;
+    background-color: #171717 !important;
+    color: #ffffff !important;
+    font-size: 0.85rem !important;
+    opacity: 0.95 !important;
+    line-height: 1.4 !important;
+    border: none !important;
+    margin: 0 !important;
+  }
   @media screen and (max-width: 600px) {
-    .dash-card {
+    #hb-dashboard .dash-card {
       width: 100%;
       max-width: 320px;
     }
-    .dash-grid {
+    #hb-dashboard .dash-grid {
       gap: 20px;
       margin-top: 24px;
     }
@@ -206,8 +222,7 @@ title: Hartley Bay Maintenance Management
      data-dataset-img="/assets/images/GM_Dataset.jpg">
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
-      <img src="/assets/images/GM_Dashboard.jpg" alt="General Maintenance" width="280" height="150"
-           style="opacity:0; transition: opacity 0.2s;" onload="this.style.opacity=1;">
+      <img src="/assets/images/GM_Dashboard.jpg" alt="General Maintenance" width="280" height="150">
     </div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
@@ -284,7 +299,7 @@ title: Hartley Bay Maintenance Management
 
 <script>
   (function () {
-    var cards = document.querySelectorAll('.toggle-card');
+    var cards = document.querySelectorAll('#hb-dashboard .toggle-card');
 
     cards.forEach(function (card) {
       var options = [
@@ -312,15 +327,25 @@ title: Hartley Bay Maintenance Management
         return card.getAttribute('data-' + options[index].key + '-img');
       }
 
-function render() {
-  modeLabel.textContent = options[index].label;
-  var img = currentImg();
-  if (img && thumbImg) {
-    thumbImg.classList.remove('loaded');
-    thumbImg.onload = function () { thumbImg.classList.add('loaded'); };
-    thumbImg.src = img;
-  }
-}
+      function render() {
+        modeLabel.textContent = options[index].label;
+        var img = currentImg();
+        if (img && thumbImg) {
+          thumbImg.classList.remove('loaded');
+          thumbImg.onload = function () { thumbImg.classList.add('loaded'); };
+          thumbImg.src = img;
+        }
+      }
+
+      // Ensure the initial image fades in too
+      if (thumbImg) {
+        if (thumbImg.complete) {
+          thumbImg.classList.add('loaded');
+        } else {
+          thumbImg.onload = function () { thumbImg.classList.add('loaded'); };
+        }
+      }
+
       if (thumb) {
         thumb.addEventListener('click', function() {
           var targetUrl = currentUrl();
@@ -328,7 +353,7 @@ function render() {
             window.location.href = targetUrl;
           }
         });
-        
+
         thumb.addEventListener('keydown', function(e) {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -355,3 +380,4 @@ function render() {
     });
   })();
 </script>
+</div>
