@@ -303,14 +303,20 @@ title: Hartley Bay Maintenance Management
         return card.getAttribute('data-' + options[index].key + '-img');
       }
 
-      function render() {
-        modeLabel.textContent = options[index].label;
-        var img = currentImg();
-        if (img && thumbImg) {
-          thumbImg.src = img;
-        }
-      }
+function render() {
+  modeLabel.textContent = options[index].label;
+  var url = currentUrl();
+  var img = currentImg();
 
+  if (options[index].key === 'dashboard' && url) {
+    thumb.innerHTML =
+      '<iframe src="' + url + '" ' +
+      'style="width:100%;height:100%;border:none;pointer-events:none;" ' +
+      'loading="lazy" title="Live dashboard preview"></iframe>';
+  } else if (img) {
+    thumb.innerHTML = '<img src="' + img + '" alt="' + card.querySelector('.dash-title').textContent + '">';
+  }
+}
       if (thumb) {
         thumb.addEventListener('click', function() {
           var targetUrl = currentUrl();
