@@ -308,6 +308,8 @@ function render() {
   modeLabel.textContent = options[index].label;
   var img = currentImg();
   if (img && thumbImg) {
+    thumbImg.classList.remove('loaded');
+    thumbImg.onload = function () { thumbImg.classList.add('loaded'); };
     thumbImg.src = img;
   }
 }
