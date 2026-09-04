@@ -165,20 +165,22 @@ title: Hartley Bay Maintenance Management
     min-width: 70px;
     text-align: center;
   }
-  .page-footer {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    text-align: center;
-  }
-  .footer-pill {
-    display: inline-block;
-    padding: 8px 20px;
-    border-radius: 999px;
-    background-color: #171717;
-    color: #ffffff;
-    font-size: 0.85rem;
-    opacity: 0.9;
-  }
+.page-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.footer-pill {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background-color: #171717;
+  color: #ffffff !important;
+  font-size: 0.85rem;
+  opacity: 0.95;
+}
   @media screen and (max-width: 600px) {
     .dash-card {
       width: 100%;
