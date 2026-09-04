@@ -198,7 +198,8 @@ title: Hartley Bay Maintenance Management
      data-dataset-img="/assets/images/GM_Dataset.jpg">
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
-      <img src="/assets/images/BO.jpg" alt="General Maintenance">
+      <img src="/assets/images/GM_Dashboard.jpg" alt="General Maintenance" width="280" height="150"
+           style="opacity:0; transition: opacity 0.2s;" onload="this.style.opacity=1;">
     </div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
