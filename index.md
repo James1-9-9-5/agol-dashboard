@@ -191,7 +191,11 @@ title: Hartley Bay Maintenance Management
      data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9"
      data-survey-url="https://arcg.is/1XziXe1"
      data-report-url="https://arcgis.com"
-     data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
+     data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
+     data-dashboard-img="/assets/images/BO.jpg"
+     data-survey-img="/assets/images/Church.jpg"
+     data-report-img="/assets/images/FC.jpg"
+     data-dataset-img="/assets/images/HC.jpg">
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
       <img src="/assets/images/BO.jpg" alt="General Maintenance">
@@ -286,6 +290,7 @@ title: Hartley Bay Maintenance Management
       }
 
       var thumb = card.querySelector('.dash-thumb');
+      var thumbImg = card.querySelector('.dash-thumb img');
       var modeLabel = card.querySelector('.toggle-mode');
       var arrows = card.querySelectorAll('.arrow-btn');
       var index = 0;
@@ -294,8 +299,16 @@ title: Hartley Bay Maintenance Management
         return card.getAttribute('data-' + options[index].key + '-url');
       }
 
+      function currentImg() {
+        return card.getAttribute('data-' + options[index].key + '-img');
+      }
+
       function render() {
         modeLabel.textContent = options[index].label;
+        var img = currentImg();
+        if (img && thumbImg) {
+          thumbImg.src = img;
+        }
       }
 
       if (thumb) {
