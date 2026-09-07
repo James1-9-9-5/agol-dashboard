@@ -354,6 +354,16 @@ title: Hartley Bay Maintenance Management
           }
         });
 
+                thumb.addEventListener('auxclick', function(e) {
+          if (e.button === 1) { // middle mouse button
+            e.preventDefault();
+            var targetUrl = currentUrl();
+            if (targetUrl && targetUrl !== '#') {
+              window.open(targetUrl, '_blank');
+            }
+          }
+        });
+
         thumb.addEventListener('keydown', function(e) {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
