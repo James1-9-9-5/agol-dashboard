@@ -100,4 +100,19 @@ main.main-content {
   .wordmark-sub {
     font-size: 0.8rem;
   }
+  .page-header {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.page-header .project-name {
+  font-size: 2.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.page-header .project-tagline {
+  margin-top: 0;
+}
+
+  
 }
