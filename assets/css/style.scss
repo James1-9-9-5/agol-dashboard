@@ -144,4 +144,43 @@ main.main-content {
 .wordmark-sub {
   font-size: 0.75rem !important;
 }
+
+  @media screen and (min-height: 1px) {
+  .page-header {
+    padding: 0.5rem 1.5rem !important;
+  }
+
+  .page-header .project-name {
+    font-size: 1.6rem !important;
+    margin: 0.2rem 0 !important;
+  }
+
+  .page-header .project-tagline {
+    font-size: 0.8rem !important;
+    margin: 0 !important;
+  }
+
+  .header-branding {
+    top: 8px !important;
+    left: 15px !important;
+  }
+
+  .header-logo {
+    width: 36px !important;
+  }
+
+  .wordmark-main {
+    font-size: 0.85rem !important;
+  }
+
+  .wordmark-sub {
+    font-size: 0.7rem !important;
+  }
+
+  .main-content {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    padding: 1rem !important;
+  }
+}
 }
