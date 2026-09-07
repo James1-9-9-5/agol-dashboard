@@ -1,12 +1,10 @@
 ---
 ---
 @import "{{ site.theme }}";
-
 html, body {
   overflow-x: hidden;
   width: 100%;
 }
-
 body {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -16,46 +14,39 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
-
 .main-content {
   background-color: transparent;
   color: #000000;
   padding: 2rem;
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
 }
-
 main.main-content {
   box-sizing: border-box;
   max-width: 64rem;
   margin-left: auto;
   margin-right: auto;
 }
-
 .page-header {
   background-color: #171717;
   background-image: none;
   color: #ffffff;
   position: relative;
-  padding-bottom: 1 rem;
+  padding-bottom: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
-
 .page-header .project-tagline {
   color: #d9d9d9;
   opacity: 1;
   font-size: 1rem;
   font-weight: 300;
 }
-
 .page-header .btn {
   display: none;
 }
-
 .site-footer {
   display: none;
 }
-
 .header-branding {
   position: absolute;
   top: 20px;
@@ -64,32 +55,27 @@ main.main-content {
   align-items: center;
   gap: 12px;
 }
-
 .header-logo {
   width: 70px;
   height: auto;
 }
-
 .header-wordmark {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
-
 .wordmark-main {
   color: #ffffff;
   font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: 0.5px;
 }
-
 .wordmark-sub {
   color: #ffffff;
   font-style: italic;
   font-size: 0.95rem;
   opacity: 0.9;
 }
-
 @media screen and (max-width: 600px) {
   .page-header {
     padding: 1.5rem 1.5rem 3rem;
