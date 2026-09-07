@@ -1,13 +1,8 @@
----
----
-
 @import "{{ site.theme }}";
-
 html, body {
   overflow-x: hidden;
   width: 100%;
 }
-
 body {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -17,7 +12,6 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
-
 .main-content {
   background-color: transparent;
   color: #000000;
@@ -25,14 +19,12 @@ body {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
-
 main.main-content {
   box-sizing: border-box;
   max-width: 64rem;
   margin-left: auto;
   margin-right: auto;
 }
-
 .page-header {
   background-color: #171717;
   background-image: none;
@@ -41,22 +33,18 @@ main.main-content {
   padding-bottom: 3.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
-
 .page-header .project-tagline {
   color: #d9d9d9;
   opacity: 1;
   font-size: 1rem;
   font-weight: 300;
 }
-
 .page-header .btn {
   display: none;
 }
-
 .site-footer {
   display: none;
 }
-
 .header-branding {
   position: absolute;
   top: 20px;
@@ -65,25 +53,21 @@ main.main-content {
   align-items: center;
   gap: 12px;
 }
-
 .header-logo {
   width: 70px;
   height: auto;
 }
-
 .header-wordmark {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
-
 .wordmark-main {
   color: #ffffff;
   font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: 0.5px;
 }
-
 .wordmark-sub {
   color: #ffffff;
   font-style: italic;
@@ -94,22 +78,32 @@ main.main-content {
   .page-header {
     padding: 1.5rem 1.5rem 3rem;
   }
-
   .header-branding {
     position: static;
     justify-content: center;
     margin-bottom: 1rem;
   }
-
   .header-logo {
     width: 50px;
   }
-
   .wordmark-main {
     font-size: 1rem;
   }
-
   .wordmark-sub {
     font-size: 0.8rem;
   }
 }
+
+/* ===== NEW: no-scroll fixed layout ===== */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.page-header {
+  padding: 1rem 2rem 1.25rem;
+}
+
+.page-header .project-name {
+  font-size: 1.8rem;
