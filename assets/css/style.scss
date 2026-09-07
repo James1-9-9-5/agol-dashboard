@@ -1,3 +1,5 @@
+---
+---
 @import "{{ site.theme }}";
 html, body {
   overflow-x: hidden;
@@ -14,7 +16,8 @@ body {
 }
 .main-content {
   background-color: transparent;
-  color: #000000;
+  color: 
+#000000;
   padding: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -26,15 +29,18 @@ main.main-content {
   margin-right: auto;
 }
 .page-header {
-  background-color: #171717;
+  background-color: 
+#171717;
   background-image: none;
-  color: #ffffff;
+  color: 
+#ffffff;
   position: relative;
   padding-bottom: 3.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 .page-header .project-tagline {
-  color: #d9d9d9;
+  color: 
+#d9d9d9;
   opacity: 1;
   font-size: 1rem;
   font-weight: 300;
@@ -63,13 +69,15 @@ main.main-content {
   text-align: left;
 }
 .wordmark-main {
-  color: #ffffff;
+  color: 
+#ffffff;
   font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: 0.5px;
 }
 .wordmark-sub {
-  color: #ffffff;
+  color: 
+#ffffff;
   font-style: italic;
   font-size: 0.95rem;
   opacity: 0.9;
@@ -93,17 +101,3 @@ main.main-content {
     font-size: 0.8rem;
   }
 }
-
-/* ===== NEW: no-scroll fixed layout ===== */
-html, body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-}
-
-.page-header {
-  padding: 1rem 2rem 1.25rem;
-}
-
-.page-header .project-name {
-  font-size: 1.8rem;
