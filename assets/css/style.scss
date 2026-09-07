@@ -1,5 +1,3 @@
----
----
 @import "{{ site.theme }}";
 html, body {
   overflow-x: hidden;
@@ -16,8 +14,7 @@ body {
 }
 .main-content {
   background-color: transparent;
-  color: 
-#000000;
+  color: #000000;
   padding: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -29,18 +26,15 @@ main.main-content {
   margin-right: auto;
 }
 .page-header {
-  background-color: 
-#171717;
+  background-color: #171717;
   background-image: none;
-  color: 
-#ffffff;
+  color: #ffffff;
   position: relative;
   padding-bottom: 3.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 .page-header .project-tagline {
-  color: 
-#d9d9d9;
+  color: #d9d9d9;
   opacity: 1;
   font-size: 1rem;
   font-weight: 300;
@@ -69,15 +63,13 @@ main.main-content {
   text-align: left;
 }
 .wordmark-main {
-  color: 
-#ffffff;
+  color: #ffffff;
   font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: 0.5px;
 }
 .wordmark-sub {
-  color: 
-#ffffff;
+  color: #ffffff;
   font-style: italic;
   font-size: 0.95rem;
   opacity: 0.9;
@@ -100,87 +92,12 @@ main.main-content {
   .wordmark-sub {
     font-size: 0.8rem;
   }
-  .page-header {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
 }
 
-.page-header .project-name {
-  font-size: 2.25rem;
-  margin-bottom: 0.25rem;
+/* ===== Fix: reduce header + spacing to remove page scroll ===== */
+.page-header {
+  padding-bottom: 1.5rem !important;
 }
-
-.page-header .project-tagline {
-  margin-top: 0;
-}
-
-  .page-header {
-  padding: 0.75rem 1.5rem !important;
-}
-
-.page-header .project-name {
-  font-size: 1.75rem !important;
-  margin: 0.25rem 0 !important;
-}
-
-.page-header .project-tagline {
-  font-size: 0.85rem !important;
-  margin: 0 !important;
-}
-
-.header-branding {
-  top: 10px !important;
-  left: 15px !important;
-}
-
-.header-logo {
-  width: 40px !important;
-}
-
-.wordmark-main {
-  font-size: 0.9rem !important;
-}
-
-.wordmark-sub {
-  font-size: 0.75rem !important;
-}
-
-  @media screen and (min-height: 1px) {
-  .page-header {
-    padding: 0.5rem 1.5rem !important;
-  }
-
-  .page-header .project-name {
-    font-size: 1.6rem !important;
-    margin: 0.2rem 0 !important;
-  }
-
-  .page-header .project-tagline {
-    font-size: 0.8rem !important;
-    margin: 0 !important;
-  }
-
-  .header-branding {
-    top: 8px !important;
-    left: 15px !important;
-  }
-
-  .header-logo {
-    width: 36px !important;
-  }
-
-  .wordmark-main {
-    font-size: 0.85rem !important;
-  }
-
-  .wordmark-sub {
-    font-size: 0.7rem !important;
-  }
-
-  .main-content {
-    margin-top: 0.5rem !important;
-    margin-bottom: 0.5rem !important;
-    padding: 1rem !important;
-  }
-}
+.main-content {
+  margin-top: 0.5rem !important;
 }
