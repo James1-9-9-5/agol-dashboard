@@ -43,7 +43,7 @@ title: Hartley Bay Maintenance Management
   }
   #hb-dashboard .dash-card:hover {
     box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-    transform: translateY(-3px) scale(1.05) !important;
+    transform: translateY(-3px) scale(1.02) !important;
   }
   #hb-dashboard .dash-title {
     padding: 14px 18px !important;
