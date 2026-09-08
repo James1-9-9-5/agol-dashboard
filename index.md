@@ -139,6 +139,13 @@ title: Hartley Bay Maintenance Management
   #hb-dashboard .toggle-row-wrap.merrf-toggle .arrow-btn {
     color: #ffffff !important;
   }
+  #hb-dashboard .toggle-row-wrap.inventory-toggle {
+    background-color: #d9d9d9 !important;
+    color: #000000 !important;
+  }
+  #hb-dashboard .toggle-row-wrap.inventory-toggle .arrow-btn {
+    color: #000000 !important;
+  }
 
   #hb-dashboard .toggle-row {
     display: flex !important;
@@ -284,13 +291,28 @@ title: Hartley Bay Maintenance Management
     </div>
   </div>
 
-<!-- 4. INVENTORY TRACKER CARD (no toggle) -->
-<a class="dash-card" href="https://gfnt.maps.arcgis.com/apps/dashboards/2c40e298c85b485bba89f43bac6b18ec">
-  <div class="dash-title inventory-header">Inventory Tracker</div>
-  <div class="dash-thumb inventory">
-    <img src="/assets/images/Inventory.jpg" alt="Inventory Tracker" onload="this.classList.add('loaded')">
+  <!-- 4. INVENTORY TRACKER CARD (now toggleable: Inventory / Transactions) -->
+  <div class="dash-card toggle-card"
+       data-inventory-url="https://gfnt.maps.arcgis.com/apps/dashboards/2c40e298c85b485bba89f43bac6b18ec"
+       data-transactions-url="#"
+       data-inventory-img="/assets/images/Inventory.jpg"
+       data-transactions-img="/assets/images/Inventory.jpg">
+    <div class="dash-title inventory-header">Inventory Tracker</div>
+    <div class="dash-thumb inventory" tabindex="0" role="link">
+      <img src="/assets/images/Inventory.jpg" alt="Inventory Tracker">
+    </div>
+    <div class="toggle-row-wrap inventory-toggle">
+      <div class="toggle-row">
+        <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
+        </button>
+        <span class="toggle-mode">Inventory</span>
+        <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
+        </button>
+      </div>
+    </div>
   </div>
-</a>
 </div>
 
 <div class="page-footer">
@@ -302,15 +324,24 @@ title: Hartley Bay Maintenance Management
     var cards = document.querySelectorAll('#hb-dashboard .toggle-card');
 
     cards.forEach(function (card) {
-      var options = [
-        { key: 'dashboard', label: 'Dashboard' },
-        { key: 'survey', label: 'Survey' },
-        { key: 'report', label: 'Report' },
-        { key: 'dataset', label: 'Dataset' }
-      ];
+      var options;
 
-      if (card.hasAttribute('data-box-url')) {
-        options.push({ key: 'box', label: 'Box' });
+      if (card.hasAttribute('data-transactions-url')) {
+        options = [
+          { key: 'inventory', label: 'Inventory' },
+          { key: 'transactions', label: 'Transactions' }
+        ];
+      } else {
+        options = [
+          { key: 'dashboard', label: 'Dashboard' },
+          { key: 'survey', label: 'Survey' },
+          { key: 'report', label: 'Report' },
+          { key: 'dataset', label: 'Dataset' }
+        ];
+
+        if (card.hasAttribute('data-box-url')) {
+          options.push({ key: 'box', label: 'Box' });
+        }
       }
 
       var thumb = card.querySelector('.dash-thumb');
@@ -354,7 +385,7 @@ title: Hartley Bay Maintenance Management
           }
         });
 
-                thumb.addEventListener('auxclick', function(e) {
+        thumb.addEventListener('auxclick', function(e) {
           if (e.button === 1) { // middle mouse button
             e.preventDefault();
             var targetUrl = currentUrl();
