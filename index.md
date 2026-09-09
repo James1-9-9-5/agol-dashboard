@@ -387,6 +387,12 @@ title: Hartley Bay Maintenance Management
       }
 
       if (thumb) {
+        thumb.addEventListener('mousedown', function (e) {
+          if (e.button === 1) { // middle mouse button
+            e.preventDefault();
+          }
+        });
+
         thumb.addEventListener('click', function (e) {
           var openInNewTab = e.ctrlKey || e.metaKey; // Ctrl (Win/Linux) or Cmd (Mac)
           navigate(currentUrl(), openInNewTab);
