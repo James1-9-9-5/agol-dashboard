@@ -294,7 +294,7 @@ title: Hartley Bay Maintenance Management
   <!-- 4. INVENTORY TRACKER CARD (now toggleable: Inventory / Transactions) -->
   <div class="dash-card toggle-card"
        data-inventory-url="https://gfnt.maps.arcgis.com/apps/dashboards/2c40e298c85b485bba89f43bac6b18ec"
-       data-transactions-url="#"
+       data-transactions-url="https://www.arcgis.com/apps/dashboards/a0f07e1d734c4806b95ed1f199beadb8"
        data-inventory-img="/assets/images/Inventory.jpg"
        data-transactions-img="/assets/images/Inventory.jpg">
     <div class="dash-title inventory-header">Inventory Tracker</div>
