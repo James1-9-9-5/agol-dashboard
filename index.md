@@ -377,31 +377,33 @@ title: Hartley Bay Maintenance Management
         }
       }
 
+      function navigate(targetUrl, newTab) {
+        if (!targetUrl || targetUrl === '#') return;
+        if (newTab) {
+          window.open(targetUrl, '_blank');
+        } else {
+          window.location.href = targetUrl;
+        }
+      }
+
       if (thumb) {
-        thumb.addEventListener('click', function() {
-          var targetUrl = currentUrl();
-          if (targetUrl && targetUrl !== '#') {
-            window.location.href = targetUrl;
-          }
+        thumb.addEventListener('click', function (e) {
+          var openInNewTab = e.ctrlKey || e.metaKey; // Ctrl (Win/Linux) or Cmd (Mac)
+          navigate(currentUrl(), openInNewTab);
         });
 
-        thumb.addEventListener('auxclick', function(e) {
+        thumb.addEventListener('auxclick', function (e) {
           if (e.button === 1) { // middle mouse button
             e.preventDefault();
-            var targetUrl = currentUrl();
-            if (targetUrl && targetUrl !== '#') {
-              window.open(targetUrl, '_blank');
-            }
+            navigate(currentUrl(), true);
           }
         });
 
-        thumb.addEventListener('keydown', function(e) {
+        thumb.addEventListener('keydown', function (e) {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            var targetUrl = currentUrl();
-            if (targetUrl && targetUrl !== '#') {
-              window.location.href = targetUrl;
-            }
+            var openInNewTab = e.ctrlKey || e.metaKey;
+            navigate(currentUrl(), openInNewTab);
           }
         });
       }
@@ -418,6 +420,9 @@ title: Hartley Bay Maintenance Management
           render();
         });
       });
+    });
+  })();
+</script>
     });
   })();
 </script>
