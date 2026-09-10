@@ -6,15 +6,18 @@ title: Hartley Bay Maintenance Management
 <style>
   #hb-dashboard .dash-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 28px;
+    flex-wrap: nowrap;
+    gap: 20px;
     margin-top: 40px;
     justify-content: center;
+    align-items: flex-start;
   }
   #hb-dashboard .dash-card {
     display: flex !important;
     flex-direction: column !important;
-    width: 280px;
+    flex: 1 1 220px;
+    max-width: 280px;
+    min-width: 0;
     text-decoration: none;
     color: inherit;
     border: 4px solid #ffffff;
@@ -203,6 +206,15 @@ title: Hartley Bay Maintenance Management
     line-height: 1.4 !important;
     border: none !important;
     margin: 0 !important;
+  }
+  @media screen and (max-width: 900px) {
+    #hb-dashboard .dash-grid {
+      flex-wrap: wrap;
+    }
+    #hb-dashboard .dash-card {
+      flex: 1 1 220px;
+      max-width: 320px;
+    }
   }
   @media screen and (max-width: 600px) {
     #hb-dashboard .dash-card {
@@ -426,9 +438,6 @@ title: Hartley Bay Maintenance Management
           render();
         });
       });
-    });
-  })();
-</script>
     });
   })();
 </script>
