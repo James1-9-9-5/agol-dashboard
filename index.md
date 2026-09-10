@@ -16,7 +16,7 @@ title: Hartley Bay Maintenance Management
     display: flex !important;
     flex-direction: column !important;
     flex: 1 1 220px;
-    max-width: 280px;
+    max-width: 320px;
     min-width: 0;
     text-decoration: none;
     color: inherit;
