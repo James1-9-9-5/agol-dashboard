@@ -393,9 +393,9 @@ title: Hartley Bay Maintenance Management
     // Short blurb shown in the hover tooltip for each option.
     // Edit these to match what each link actually opens.
     var DESCRIPTIONS = {
-      dashboard: 'Live interactive map and summary charts.',
-      survey: 'Submit a new maintenance request via form.',
-      report: 'View submitted requests in a sortable table.',
+      dashboard: 'Your one-stop-shop.',
+      survey: 'Submit a new entry.',
+      report: 'Export previous entries.',
       dataset: 'Browse and query the underlying raw data.',
       box: 'Open supporting files and documents.',
       inventory: 'View current stock levels for tracked items.',
