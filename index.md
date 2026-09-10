@@ -212,28 +212,55 @@ title: Hartley Bay Maintenance Management
     opacity: 1;
     transform: scale(1.4);
   }
-  #hb-dashboard .dash-tooltip {
+  #hb-dashboard .thumb-wrap {
+    position: relative;
+  }
+  #hb-dashboard .info-btn {
     position: absolute;
-    left: 50%;
-    bottom: 10px;
-    transform: translate(-50%, 6px);
-    max-width: 90%;
+    top: 8px;
+    right: 8px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 4;
+    padding: 0;
+    line-height: 1;
+    transition: background 0.15s ease;
+  }
+  #hb-dashboard .info-btn:hover,
+  #hb-dashboard .info-btn:focus-visible {
     background: rgba(0, 0, 0, 0.85);
+  }
+  #hb-dashboard .info-popover {
+    position: absolute;
+    top: 36px;
+    right: 8px;
+    width: 200px;
+    max-width: calc(100% - 16px);
+    background: rgba(0, 0, 0, 0.92);
     color: #ffffff;
     font-size: 0.78rem;
-    line-height: 1.3;
-    padding: 8px 10px;
-    border-radius: 6px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.15s ease, transform 0.15s ease;
-    z-index: 3;
-    text-align: center;
+    line-height: 1.35;
+    padding: 10px 12px;
+    border-radius: 8px;
+    z-index: 4;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+    display: none;
   }
-  #hb-dashboard .dash-thumb:hover .dash-tooltip,
-  #hb-dashboard .dash-thumb:focus-visible .dash-tooltip {
-    opacity: 1;
-    transform: translate(-50%, 0);
+  #hb-dashboard .info-popover.open {
+    display: block;
   }
   #hb-dashboard .page-footer {
     margin-top: 3rem;
@@ -285,11 +312,18 @@ title: Hartley Bay Maintenance Management
      data-dashboard-img="/assets/images/GM_Dashboard.jpg"
      data-survey-img="/assets/images/GM_Survey.jpg"
      data-report-img="/assets/images/GM_Report.jpg"
-     data-dataset-img="/assets/images/GM_Dataset.jpg">
+     data-dataset-img="/assets/images/GM_Dataset.jpg"
+     data-dashboard-desc="Live map and summary charts of all open general maintenance work orders."
+     data-survey-desc="Submit a new general maintenance request or work order."
+     data-report-desc="Browse submitted general maintenance requests in a table."
+     data-dataset-desc="Query the raw general maintenance dataset.">
     <div class="dash-title">General Maintenance</div>
-    <div class="dash-thumb general" tabindex="0" role="link">
-      <img src="/assets/images/GM_Dashboard.jpg" alt="General Maintenance" width="280" height="150">
-      <div class="dash-tooltip"></div>
+    <div class="thumb-wrap">
+      <div class="dash-thumb general" tabindex="0" role="link">
+        <img src="/assets/images/GM_Dashboard.jpg" alt="General Maintenance" width="280" height="150">
+      </div>
+      <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
+      <div class="info-popover"></div>
     </div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
@@ -311,11 +345,19 @@ title: Hartley Bay Maintenance Management
        data-survey-url="https://arcg.is/1XziXe1"
        data-report-url="https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2872,53.4205,-129.2171,53.4291"
        data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
-       data-box-url="https://tapestryresearch.app.box.com/folder/346256879414">
+       data-box-url="https://tapestryresearch.app.box.com/folder/346256879414"
+       data-dashboard-desc="Live map and summary charts of housing maintenance activity and costs."
+       data-survey-desc="Submit a new housing maintenance request."
+       data-report-desc="Browse submitted housing maintenance requests in a table."
+       data-dataset-desc="Query the raw housing maintenance dataset."
+       data-box-desc="Open supporting housing maintenance files and documents in Box.">
     <div class="dash-title housing-header">Housing Maintenance</div>
-    <div class="dash-thumb housing" tabindex="0" role="link">
-      <img src="/assets/images/HM_Dashboard.jpg" alt="Housing Maintenance">
-      <div class="dash-tooltip"></div>
+    <div class="thumb-wrap">
+      <div class="dash-thumb housing" tabindex="0" role="link">
+        <img src="/assets/images/HM_Dashboard.jpg" alt="Housing Maintenance">
+      </div>
+      <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
+      <div class="info-popover"></div>
     </div>
     <div class="toggle-row-wrap housing-toggle">
       <div class="toggle-row">
@@ -336,11 +378,18 @@ title: Hartley Bay Maintenance Management
        data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/0b545005cecf45b8b3a597d2b5150971#"
        data-survey-url="https://arcg.is/1XziXe1"
        data-report-url="https://survey123.arcgis.com/surveys/65cbce668ade4efaa3a63b9461ea30f8/data?extent=-129.2872,53.4205,-129.2171,53.4291"
-       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data">
+       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
+       data-dashboard-desc="Live map and summary charts of MERRF maintenance activity and equipment status."
+       data-survey-desc="Submit a new MERRF maintenance request."
+       data-report-desc="Browse submitted MERRF maintenance requests in a table."
+       data-dataset-desc="Query the raw MERRF maintenance dataset.">
     <div class="dash-title merrf-header">MERRF Maintenance</div>
-    <div class="dash-thumb merrf" tabindex="0" role="link">
-      <img src="/assets/images/MERRF_Dashboard.jpg" alt="MERRF Maintenance">
-      <div class="dash-tooltip"></div>
+    <div class="thumb-wrap">
+      <div class="dash-thumb merrf" tabindex="0" role="link">
+        <img src="/assets/images/MERRF_Dashboard.jpg" alt="MERRF Maintenance">
+      </div>
+      <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
+      <div class="info-popover"></div>
     </div>
     <div class="toggle-row-wrap merrf-toggle">
       <div class="toggle-row">
@@ -361,11 +410,16 @@ title: Hartley Bay Maintenance Management
        data-inventory-url="https://gfnt.maps.arcgis.com/apps/dashboards/2c40e298c85b485bba89f43bac6b18ec"
        data-transactions-url="https://gfnt.maps.arcgis.com/apps/dashboards/a0f07e1d734c4806b95ed1f199beadb8"
        data-inventory-img="/assets/images/Inventory.jpg"
-       data-transactions-img="/assets/images/Inventory.jpg">
+       data-transactions-img="/assets/images/Inventory.jpg"
+       data-inventory-desc="View current stock levels for tracked inventory items."
+       data-transactions-desc="View the history of inventory check-ins and check-outs.">
     <div class="dash-title inventory-header">Inventory Tracker</div>
-    <div class="dash-thumb inventory" tabindex="0" role="link">
-      <img src="/assets/images/Inventory.jpg" alt="Inventory Tracker">
-      <div class="dash-tooltip"></div>
+    <div class="thumb-wrap">
+      <div class="dash-thumb inventory" tabindex="0" role="link">
+        <img src="/assets/images/Inventory.jpg" alt="Inventory Tracker">
+      </div>
+      <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
+      <div class="info-popover"></div>
     </div>
     <div class="toggle-row-wrap inventory-toggle">
       <div class="toggle-row">
@@ -390,17 +444,25 @@ title: Hartley Bay Maintenance Management
   (function () {
     var cards = document.querySelectorAll('#hb-dashboard .toggle-card');
 
-    // Short blurb shown in the hover tooltip for each option.
-    // Edit these to match what each link actually opens.
-    var DESCRIPTIONS = {
-      dashboard: 'Your one-stop-shop.',
-      survey: 'Submit a new entry.',
-      report: 'Export previous entries.',
-      dataset: 'Browse and query the underlying raw data.',
-      box: 'Open supporting files and documents.',
-      inventory: 'View current stock levels for tracked items.',
-      transactions: 'View inventory check-in / check-out history.'
-    };
+    function closeAllPopovers(except) {
+      document.querySelectorAll('#hb-dashboard .info-popover.open').forEach(function (p) {
+        if (p !== except) {
+          p.classList.remove('open');
+          var btn = p.previousElementSibling;
+          if (btn && btn.classList.contains('info-btn')) {
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+    }
+
+    document.addEventListener('click', function () {
+      closeAllPopovers();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeAllPopovers();
+    });
 
     cards.forEach(function (card) {
       var options;
@@ -425,11 +487,16 @@ title: Hartley Bay Maintenance Management
 
       var thumb = card.querySelector('.dash-thumb');
       var thumbImg = card.querySelector('.dash-thumb img');
-      var tooltip = card.querySelector('.dash-tooltip');
+      var infoBtn = card.querySelector('.info-btn');
+      var popover = card.querySelector('.info-popover');
       var modeLabel = card.querySelector('.toggle-mode');
       var dotsWrap = card.querySelector('.toggle-dots');
       var arrows = card.querySelectorAll('.arrow-btn');
       var index = 0;
+
+      function currentDesc() {
+        return card.getAttribute('data-' + options[index].key + '-desc') || options[index].label;
+      }
 
       // Build one dot per option, up front.
       if (dotsWrap) {
@@ -439,8 +506,8 @@ title: Hartley Bay Maintenance Management
           dotsWrap.appendChild(dot);
         });
       }
-      if (tooltip) {
-        tooltip.textContent = DESCRIPTIONS[options[0].key] || options[0].label;
+      if (popover) {
+        popover.textContent = currentDesc();
       }
 
       function currentUrl() {
@@ -459,8 +526,8 @@ title: Hartley Bay Maintenance Management
           thumbImg.onload = function () { thumbImg.classList.add('loaded'); };
           thumbImg.src = img;
         }
-        if (tooltip) {
-          tooltip.textContent = DESCRIPTIONS[options[index].key] || options[index].label;
+        if (popover) {
+          popover.textContent = currentDesc();
         }
         if (dotsWrap) {
           var dots = dotsWrap.querySelectorAll('.dot');
@@ -513,6 +580,25 @@ title: Hartley Bay Maintenance Management
             var openInNewTab = e.ctrlKey || e.metaKey;
             navigate(currentUrl(), openInNewTab);
           }
+        });
+      }
+
+      if (infoBtn && popover) {
+        infoBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+          var isOpen = popover.classList.contains('open');
+          closeAllPopovers(isOpen ? null : popover);
+          if (!isOpen) {
+            popover.classList.add('open');
+            infoBtn.setAttribute('aria-expanded', 'true');
+          } else {
+            infoBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        popover.addEventListener('click', function (e) {
+          e.stopPropagation();
         });
       }
 
