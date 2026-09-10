@@ -10,7 +10,7 @@ title: Hartley Bay Maintenance Management
     gap: 20px;
     margin-top: 40px;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
   }
   #hb-dashboard .dash-card {
     display: flex !important;
@@ -58,6 +58,11 @@ title: Hartley Bay Maintenance Management
     margin: 0 !important;
     position: relative;
     z-index: 2;
+    min-height: 58px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.25;
   }
 
   /* Header Color Adjustments */
