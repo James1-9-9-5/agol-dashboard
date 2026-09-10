@@ -193,6 +193,48 @@ title: Hartley Bay Maintenance Management
     min-width: 70px;
     text-align: center;
   }
+  #hb-dashboard .toggle-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  #hb-dashboard .toggle-dots .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+    opacity: 0.35;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  #hb-dashboard .toggle-dots .dot.active {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+  #hb-dashboard .dash-tooltip {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, 6px);
+    max-width: 90%;
+    background: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-size: 0.78rem;
+    line-height: 1.3;
+    padding: 8px 10px;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 3;
+    text-align: center;
+  }
+  #hb-dashboard .dash-thumb:hover .dash-tooltip,
+  #hb-dashboard .dash-thumb:focus-visible .dash-tooltip {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
   #hb-dashboard .page-footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
@@ -247,6 +289,7 @@ title: Hartley Bay Maintenance Management
     <div class="dash-title">General Maintenance</div>
     <div class="dash-thumb general" tabindex="0" role="link">
       <img src="/assets/images/GM_Dashboard.jpg" alt="General Maintenance" width="280" height="150">
+      <div class="dash-tooltip"></div>
     </div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
@@ -258,6 +301,7 @@ title: Hartley Bay Maintenance Management
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
         </button>
       </div>
+      <div class="toggle-dots"></div>
     </div>
   </div>
 
@@ -271,6 +315,7 @@ title: Hartley Bay Maintenance Management
     <div class="dash-title housing-header">Housing Maintenance</div>
     <div class="dash-thumb housing" tabindex="0" role="link">
       <img src="/assets/images/HM_Dashboard.jpg" alt="Housing Maintenance">
+      <div class="dash-tooltip"></div>
     </div>
     <div class="toggle-row-wrap housing-toggle">
       <div class="toggle-row">
@@ -282,6 +327,7 @@ title: Hartley Bay Maintenance Management
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
         </button>
       </div>
+      <div class="toggle-dots"></div>
     </div>
   </div>
 
@@ -294,6 +340,7 @@ title: Hartley Bay Maintenance Management
     <div class="dash-title merrf-header">MERRF Maintenance</div>
     <div class="dash-thumb merrf" tabindex="0" role="link">
       <img src="/assets/images/MERRF_Dashboard.jpg" alt="MERRF Maintenance">
+      <div class="dash-tooltip"></div>
     </div>
     <div class="toggle-row-wrap merrf-toggle">
       <div class="toggle-row">
@@ -305,6 +352,7 @@ title: Hartley Bay Maintenance Management
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
         </button>
       </div>
+      <div class="toggle-dots"></div>
     </div>
   </div>
 
@@ -317,6 +365,7 @@ title: Hartley Bay Maintenance Management
     <div class="dash-title inventory-header">Inventory Tracker</div>
     <div class="dash-thumb inventory" tabindex="0" role="link">
       <img src="/assets/images/Inventory.jpg" alt="Inventory Tracker">
+      <div class="dash-tooltip"></div>
     </div>
     <div class="toggle-row-wrap inventory-toggle">
       <div class="toggle-row">
@@ -328,6 +377,7 @@ title: Hartley Bay Maintenance Management
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
         </button>
       </div>
+      <div class="toggle-dots"></div>
     </div>
   </div>
 </div>
@@ -339,6 +389,18 @@ title: Hartley Bay Maintenance Management
 <script>
   (function () {
     var cards = document.querySelectorAll('#hb-dashboard .toggle-card');
+
+    // Short blurb shown in the hover tooltip for each option.
+    // Edit these to match what each link actually opens.
+    var DESCRIPTIONS = {
+      dashboard: 'Live interactive map and summary charts.',
+      survey: 'Submit a new maintenance request via form.',
+      report: 'View submitted requests in a sortable table.',
+      dataset: 'Browse and query the underlying raw data.',
+      box: 'Open supporting files and documents.',
+      inventory: 'View current stock levels for tracked items.',
+      transactions: 'View inventory check-in / check-out history.'
+    };
 
     cards.forEach(function (card) {
       var options;
@@ -363,9 +425,23 @@ title: Hartley Bay Maintenance Management
 
       var thumb = card.querySelector('.dash-thumb');
       var thumbImg = card.querySelector('.dash-thumb img');
+      var tooltip = card.querySelector('.dash-tooltip');
       var modeLabel = card.querySelector('.toggle-mode');
+      var dotsWrap = card.querySelector('.toggle-dots');
       var arrows = card.querySelectorAll('.arrow-btn');
       var index = 0;
+
+      // Build one dot per option, up front.
+      if (dotsWrap) {
+        options.forEach(function (opt, i) {
+          var dot = document.createElement('span');
+          dot.className = 'dot' + (i === 0 ? ' active' : '');
+          dotsWrap.appendChild(dot);
+        });
+      }
+      if (tooltip) {
+        tooltip.textContent = DESCRIPTIONS[options[0].key] || options[0].label;
+      }
 
       function currentUrl() {
         return card.getAttribute('data-' + options[index].key + '-url');
@@ -382,6 +458,15 @@ title: Hartley Bay Maintenance Management
           thumbImg.classList.remove('loaded');
           thumbImg.onload = function () { thumbImg.classList.add('loaded'); };
           thumbImg.src = img;
+        }
+        if (tooltip) {
+          tooltip.textContent = DESCRIPTIONS[options[index].key] || options[index].label;
+        }
+        if (dotsWrap) {
+          var dots = dotsWrap.querySelectorAll('.dot');
+          dots.forEach(function (d, i) {
+            d.classList.toggle('active', i === index);
+          });
         }
       }
 
