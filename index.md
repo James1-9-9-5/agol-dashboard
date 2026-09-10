@@ -15,9 +15,9 @@ title: Hartley Bay Maintenance Management
   #hb-dashboard .dash-card {
     display: flex !important;
     flex-direction: column !important;
-    flex: 1 1 220px;
+    flex: 1 1 260px;
     max-width: 320px;
-    min-width: 0;
+    min-width: 240px;
     text-decoration: none;
     color: inherit;
     border: 4px solid #ffffff;
@@ -217,7 +217,7 @@ title: Hartley Bay Maintenance Management
       flex-wrap: wrap;
     }
     #hb-dashboard .dash-card {
-      flex: 1 1 220px;
+      flex: 1 1 260px;
       max-width: 320px;
     }
   }
