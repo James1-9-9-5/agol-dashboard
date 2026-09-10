@@ -217,15 +217,15 @@ title: Hartley Bay Maintenance Management
   }
   #hb-dashboard .info-btn {
     position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 22px;
-    height: 22px;
+    top: 6px;
+    right: 6px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.55);
     color: #ffffff;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    font-size: 0.75rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.8);
+    font-size: 0.6rem;
     font-weight: 700;
     font-style: italic;
     font-family: Georgia, 'Times New Roman', serif;
@@ -233,7 +233,7 @@ title: Hartley Bay Maintenance Management
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 4;
+    z-index: 5;
     padding: 0;
     line-height: 1;
     transition: background 0.15s ease;
@@ -244,17 +244,17 @@ title: Hartley Bay Maintenance Management
   }
   #hb-dashboard .info-popover {
     position: absolute;
-    top: 36px;
-    right: 8px;
+    top: 28px;
+    right: 6px;
     width: 200px;
-    max-width: calc(100% - 16px);
+    max-width: calc(100% - 12px);
     background: rgba(0, 0, 0, 0.92);
     color: #ffffff;
     font-size: 0.78rem;
     line-height: 1.35;
     padding: 10px 12px;
     border-radius: 8px;
-    z-index: 4;
+    z-index: 5;
     text-align: left;
     box-shadow: 0 4px 10px rgba(0,0,0,0.35);
     display: none;
@@ -317,13 +317,13 @@ title: Hartley Bay Maintenance Management
      data-survey-desc="Submit a new general maintenance request or work order."
      data-report-desc="Browse submitted general maintenance requests in a table."
      data-dataset-desc="Query the raw general maintenance dataset.">
+    <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
+    <div class="info-popover"></div>
     <div class="dash-title">General Maintenance</div>
     <div class="thumb-wrap">
       <div class="dash-thumb general" tabindex="0" role="link">
         <img src="/assets/images/GM_Dashboard.jpg" alt="General Maintenance" width="280" height="150">
       </div>
-      <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
-      <div class="info-popover"></div>
     </div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
@@ -351,13 +351,13 @@ title: Hartley Bay Maintenance Management
        data-report-desc="Browse submitted housing maintenance requests in a table."
        data-dataset-desc="Query the raw housing maintenance dataset."
        data-box-desc="Open supporting housing maintenance files and documents in Box.">
+    <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
+    <div class="info-popover"></div>
     <div class="dash-title housing-header">Housing Maintenance</div>
     <div class="thumb-wrap">
       <div class="dash-thumb housing" tabindex="0" role="link">
         <img src="/assets/images/HM_Dashboard.jpg" alt="Housing Maintenance">
       </div>
-      <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
-      <div class="info-popover"></div>
     </div>
     <div class="toggle-row-wrap housing-toggle">
       <div class="toggle-row">
@@ -383,13 +383,13 @@ title: Hartley Bay Maintenance Management
        data-survey-desc="Submit a new MERRF maintenance request."
        data-report-desc="Browse submitted MERRF maintenance requests in a table."
        data-dataset-desc="Query the raw MERRF maintenance dataset.">
+    <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
+    <div class="info-popover"></div>
     <div class="dash-title merrf-header">MERRF Maintenance</div>
     <div class="thumb-wrap">
       <div class="dash-thumb merrf" tabindex="0" role="link">
         <img src="/assets/images/MERRF_Dashboard.jpg" alt="MERRF Maintenance">
       </div>
-      <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
-      <div class="info-popover"></div>
     </div>
     <div class="toggle-row-wrap merrf-toggle">
       <div class="toggle-row">
@@ -413,13 +413,13 @@ title: Hartley Bay Maintenance Management
        data-transactions-img="/assets/images/Inventory.jpg"
        data-inventory-desc="View current stock levels for tracked inventory items."
        data-transactions-desc="View the history of inventory check-ins and check-outs.">
+    <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
+    <div class="info-popover"></div>
     <div class="dash-title inventory-header">Inventory Tracker</div>
     <div class="thumb-wrap">
       <div class="dash-thumb inventory" tabindex="0" role="link">
         <img src="/assets/images/Inventory.jpg" alt="Inventory Tracker">
       </div>
-      <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
-      <div class="info-popover"></div>
     </div>
     <div class="toggle-row-wrap inventory-toggle">
       <div class="toggle-row">
