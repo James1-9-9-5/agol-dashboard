@@ -206,7 +206,11 @@ title: Hartley Bay Maintenance Management
     border-radius: 50%;
     background-color: currentColor;
     opacity: 0.35;
+    cursor: pointer;
     transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  #hb-dashboard .toggle-dots .dot:hover {
+    opacity: 0.7;
   }
   #hb-dashboard .toggle-dots .dot.active {
     opacity: 1;
@@ -498,11 +502,32 @@ title: Hartley Bay Maintenance Management
         return card.getAttribute('data-' + options[index].key + '-desc') || options[index].label;
       }
 
-      // Build one dot per option, up front.
+      // Build one dot per option, up front. Each dot is clickable and
+      // jumps straight to its corresponding option.
       if (dotsWrap) {
         options.forEach(function (opt, i) {
           var dot = document.createElement('span');
           dot.className = 'dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('role', 'button');
+          dot.setAttribute('tabindex', '0');
+          dot.setAttribute('aria-label', 'Go to ' + opt.label);
+
+          dot.addEventListener('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            index = i;
+            render();
+          });
+
+          dot.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.stopPropagation();
+              e.preventDefault();
+              index = i;
+              render();
+            }
+          });
+
           dotsWrap.appendChild(dot);
         });
       }
