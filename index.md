@@ -272,6 +272,8 @@ title: Hartley Bay Maintenance Management
     text-align: center;
     display: flex;
     justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
   }
   #hb-dashboard .footer-pill {
     display: inline-block !important;
@@ -285,6 +287,109 @@ title: Hartley Bay Maintenance Management
     border: none !important;
     margin: 0 !important;
   }
+
+  /* Contact button + modal */
+  #hb-dashboard .contact-btn {
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600 !important;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  #hb-dashboard .contact-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+  #hb-dashboard .contact-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  #hb-dashboard .contact-modal-overlay.open {
+    display: flex;
+  }
+  #hb-dashboard .contact-modal {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    background: #171717;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 24px 22px 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    animation: fadeInUp 0.25s ease forwards;
+  }
+  #hb-dashboard .contact-modal h3 {
+    margin: 0 0 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  #hb-dashboard .contact-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px;
+    opacity: 0.75;
+  }
+  #hb-dashboard .contact-modal-close:hover {
+    opacity: 1;
+  }
+  #hb-dashboard .contact-modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  #hb-dashboard .contact-modal label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: -6px;
+  }
+  #hb-dashboard .contact-modal input,
+  #hb-dashboard .contact-modal textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px 11px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: #232323;
+    color: #ffffff;
+    font: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+  }
+  #hb-dashboard .contact-modal input:focus,
+  #hb-dashboard .contact-modal textarea:focus {
+    outline: none;
+    border-color: #ffffff;
+  }
+  #hb-dashboard .contact-submit-btn {
+    margin-top: 4px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: none;
+    background: #ffffff;
+    color: #171717;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+  #hb-dashboard .contact-submit-btn:hover {
+    opacity: 0.85;
+  }
+
   @media screen and (max-width: 900px) {
     #hb-dashboard .dash-grid {
       flex-wrap: wrap;
@@ -440,8 +545,24 @@ title: Hartley Bay Maintenance Management
   </div>
 </div>
 
+<!-- CONTACT SECTION -->
 <div class="page-footer">
   <span class="footer-pill">&copy; 2026 Gitga'at First Nation</span>
+  <button class="footer-pill contact-btn" type="button" id="hb-contact-btn">Contact Maintenance Office</button>
+</div>
+
+<div class="contact-modal-overlay" id="hb-contact-overlay">
+  <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="hb-contact-title">
+    <button class="contact-modal-close" type="button" id="hb-contact-close" aria-label="Close">&times;</button>
+    <h3 id="hb-contact-title">Contact Maintenance Office</h3>
+    <form id="hb-contact-form">
+      <label for="hb-contact-name">Name</label>
+      <input type="text" id="hb-contact-name" name="name" required>
+      <label for="hb-contact-details">Details</label>
+      <textarea id="hb-contact-details" name="details" rows="5" required></textarea>
+      <button type="submit" class="contact-submit-btn">Send</button>
+    </form>
+  </div>
 </div>
 
 <script>
@@ -639,6 +760,60 @@ title: Hartley Bay Maintenance Management
           render();
         });
       });
+    });
+  })();
+
+  // Contact modal
+  (function () {
+    var contactBtn = document.getElementById('hb-contact-btn');
+    var overlay = document.getElementById('hb-contact-overlay');
+    var closeBtn = document.getElementById('hb-contact-close');
+    var form = document.getElementById('hb-contact-form');
+    var nameInput = document.getElementById('hb-contact-name');
+    var detailsInput = document.getElementById('hb-contact-details');
+
+    if (!contactBtn || !overlay || !form) return;
+
+    function openModal() {
+      overlay.classList.add('open');
+      nameInput.focus();
+    }
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      form.reset();
+    }
+
+    contactBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      openModal();
+    });
+
+    closeBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      closeModal();
+    });
+
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeModal();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+    });
+
+    form.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = nameInput.value.trim();
+      var details = detailsInput.value.trim();
+      var subject = encodeURIComponent('Website Contact from ' + name);
+      var body = encodeURIComponent('Name: ' + name + '\n\nMessage:\n' + details);
+      window.location.href = 'mailto:j.spooner@tapestryresearchgroup.com?subject=' + subject + '&body=' + body;
+      closeModal();
     });
   })();
 </script>
