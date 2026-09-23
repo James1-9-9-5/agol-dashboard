@@ -389,6 +389,22 @@ title: Hartley Bay Maintenance Management
   #hb-dashboard .contact-submit-btn:hover {
     opacity: 0.85;
   }
+  #hb-dashboard .contact-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+  #hb-dashboard .contact-status-msg {
+    margin: 4px 0 0;
+    font-size: 0.85rem;
+    text-align: center;
+    min-height: 1em;
+  }
+  #hb-dashboard .contact-status-msg.success {
+    color: #6fd68a;
+  }
+  #hb-dashboard .contact-status-msg.error {
+    color: #ff8080;
+  }
 
   @media screen and (max-width: 900px) {
     #hb-dashboard .dash-grid {
@@ -782,6 +798,11 @@ title: Hartley Bay Maintenance Management
     function closeModal() {
       overlay.classList.remove('open');
       form.reset();
+      var msg = form.querySelector('.contact-status-msg');
+      if (msg) {
+        msg.textContent = '';
+        msg.className = 'contact-status-msg';
+      }
     }
 
     contactBtn.addEventListener('click', function (e) {
@@ -806,14 +827,50 @@ title: Hartley Bay Maintenance Management
       e.stopPropagation();
     });
 
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mqpabgla';
+    var submitBtn = form.querySelector('.contact-submit-btn');
+    var statusMsg = document.createElement('p');
+    statusMsg.className = 'contact-status-msg';
+    form.appendChild(statusMsg);
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = nameInput.value.trim();
       var details = detailsInput.value.trim();
-      var subject = encodeURIComponent('Website Contact from ' + name);
-      var body = encodeURIComponent('Name: ' + name + '\n\nMessage:\n' + details);
-      window.location.href = 'mailto:j.spooner@tapestryresearchgroup.com?subject=' + subject + '&body=' + body;
-      closeModal();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      statusMsg.textContent = '';
+      statusMsg.className = 'contact-status-msg';
+
+      fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new URLSearchParams({
+          name: name,
+          message: details,
+          _subject: 'Website Contact from ' + name
+        })
+      })
+        .then(function (response) {
+          if (response.ok) {
+            statusMsg.textContent = 'Message sent. Thank you!';
+            statusMsg.classList.add('success');
+            form.reset();
+            setTimeout(closeModal, 1500);
+          } else {
+            statusMsg.textContent = 'Something went wrong. Please try again.';
+            statusMsg.classList.add('error');
+          }
+        })
+        .catch(function () {
+          statusMsg.textContent = 'Something went wrong. Please try again.';
+          statusMsg.classList.add('error');
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send';
+        });
     });
   })();
 </script>
