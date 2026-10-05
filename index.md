@@ -4,157 +4,202 @@ title: Hartley Bay Maintenance Management
 ---
 <div id="hb-dashboard">
 <style>
+  /* ---------- Palette (edit these to match exact logo values) ---------- */
+  #hb-dashboard {
+    --hb-ink: #1A1A1A;
+    --hb-card: #F5F2EE;
+    --hb-red: #C8102E;
+    --hb-red-dark: #A00D25;
+    --hb-muted: #5A5A5A;
+    --hb-line: #DDD7CF;
+  }
+
+  /* ---------- Shared bits ---------- */
+  #hb-dashboard svg.icon {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ---------- Report a Problem (wide card) ---------- */
+  #hb-dashboard .report-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 1020px;
+    margin: 40px auto 0;
+    padding: 26px 32px;
+    box-sizing: border-box;
+    border: 4px solid #ffffff;
+    border-radius: 10px;
+    background: var(--hb-red);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+  }
+  #hb-dashboard .report-card:hover {
+    background: var(--hb-red-dark);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+  }
+  #hb-dashboard .report-card:focus-visible {
+    outline: 4px solid #ffffff;
+    outline-offset: 3px;
+  }
+  #hb-dashboard .report-icon {
+    flex: 0 0 auto;
+    width: 64px;
+    height: 64px;
+  }
+  #hb-dashboard .report-text {
+    flex: 1 1 auto;
+  }
+  #hb-dashboard .report-title {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 4px;
+  }
+  #hb-dashboard .report-desc {
+    display: block;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    opacity: 0.95;
+  }
+  #hb-dashboard .report-action {
+    flex: 0 0 auto;
+    padding: 12px 26px;
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--hb-red);
+    font-weight: 700;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  /* ---------- Management section label ---------- */
+  #hb-dashboard .mgmt-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: fit-content;
+    margin: 44px auto 0;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: rgba(23, 23, 23, 0.92);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  #hb-dashboard .mgmt-label svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+  }
+  #hb-dashboard .mgmt-label span {
+    font-weight: 400;
+    opacity: 0.85;
+  }
+
+  /* ---------- Management cards ---------- */
   #hb-dashboard .dash-grid {
     display: flex;
     flex-wrap: nowrap;
     gap: 20px;
-    margin-top: 40px;
+    margin-top: 18px;
     justify-content: center;
     align-items: stretch;
   }
   #hb-dashboard .dash-card {
     display: flex !important;
     flex-direction: column !important;
-    flex: 1 1 260px;
+    flex: 1 1 240px;
     max-width: 320px;
-    min-width: 240px;
-    text-decoration: none;
-    color: inherit;
+    min-width: 220px;
+    color: var(--hb-ink);
     border: 4px solid #ffffff;
+    border-top: 0;
     border-radius: 10px;
     overflow: hidden !important;
-    background: #fff;
+    background: var(--hb-card);
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     transition: box-shadow 0.15s ease, transform 0.15s ease;
-    opacity: 0;
-    animation: fadeInUp 0.4s ease forwards;
     position: relative;
   }
-  #hb-dashboard .dash-card:nth-child(1) { animation-delay: 0.05s; }
-  #hb-dashboard .dash-card:nth-child(2) { animation-delay: 0.15s; }
-  #hb-dashboard .dash-card:nth-child(3) { animation-delay: 0.25s; }
-  #hb-dashboard .dash-card:nth-child(4) { animation-delay: 0.35s; }
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  #hb-dashboard .dash-card::before {
+    content: "";
+    display: block;
+    height: 8px;
+    background: var(--hb-red);
+    flex: 0 0 auto;
   }
   #hb-dashboard .dash-card:hover {
     box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-    transform: translateY(-3px) scale(1.02) !important;
-  }
-  #hb-dashboard .dash-title {
-    padding: 14px 18px !important;
-    font-weight: 600 !important;
-    font-size: 1.05rem !important;
-    background-color: #171717 !important;
-    color: #ffffff !important;
-    text-align: center !important;
-    margin: 0 !important;
-    position: relative;
-    z-index: 2;
-    min-height: 58px;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    line-height: 1.25;
+    transform: translateY(-3px);
   }
 
-  /* Header Color Adjustments */
-  #hb-dashboard .dash-title.housing-header {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-  }
-  #hb-dashboard .dash-title.merrf-header {
-    background-color: #DE353E !important;
-    color: #ffffff !important;
-  }
-  #hb-dashboard .dash-title.inventory-header {
-    background-color: #d9d9d9 !important;
-    color: #000000 !important;
-  }
-
-  #hb-dashboard .dash-thumb {
-    height: 150px !important;
-    width: 100% !important;
-    display: flex !important;
+  #hb-dashboard .dash-link {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    background-color: #2d3748;
+    text-align: center;
+    gap: 6px;
+    padding: 28px 18px 22px;
     cursor: pointer;
-    overflow: hidden !important;
-    position: relative;
+    flex: 1 1 auto;
   }
-  #hb-dashboard .dash-thumb:focus-visible {
-    outline: 3px solid #ffffff;
+  #hb-dashboard .dash-link:focus-visible {
+    outline: 3px solid var(--hb-red);
     outline-offset: -3px;
   }
-
-  #hb-dashboard .dash-thumb img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-    opacity: 0;
+  #hb-dashboard .dash-icon {
+    width: 56px;
+    height: 56px;
+    color: var(--hb-red);
+    margin-bottom: 6px;
+  }
+  #hb-dashboard .dash-title {
     margin: 0 !important;
-    transition: opacity 0.2s ease;
+    padding: 0 !important;
+    font-weight: 700 !important;
+    font-size: 1.2rem !important;
+    line-height: 1.25;
+    color: var(--hb-ink) !important;
+    background: none !important;
   }
-  #hb-dashboard .dash-thumb img.loaded {
-    opacity: 1;
-  }
-
-  /* Per-dashboard thumbnail backgrounds */
-  #hb-dashboard .dash-thumb.general { background-color: #666666; }
-  #hb-dashboard .dash-thumb.housing { background-color: #ffffff; }
-  #hb-dashboard .dash-thumb.merrf   { background-color: #DE353E; }
-  #hb-dashboard .dash-thumb.inventory { background-color: #d9d9d9; }
-
-  #hb-dashboard .icon-wrap {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.4rem;
-    line-height: 1;
+  #hb-dashboard .dash-desc {
+    margin: 0 !important;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: var(--hb-muted);
   }
 
+  /* Lock badge (top left) */
+  #hb-dashboard .lock-badge {
+    position: absolute;
+    top: 18px;
+    left: 10px;
+    width: 18px;
+    height: 18px;
+    color: var(--hb-muted);
+    z-index: 3;
+  }
+
+  /* Toggle row */
   #hb-dashboard .toggle-row-wrap {
     padding: 12px 18px 14px !important;
-    background-color: #171717 !important;
-    color: #ffffff !important;
     margin: 0 !important;
+    background: #ffffff !important;
+    color: var(--hb-ink) !important;
+    border-top: 1px solid var(--hb-line);
   }
-
-  /* Custom Toggle Row Variations */
-  #hb-dashboard .toggle-row-wrap.housing-toggle {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-  }
-  #hb-dashboard .toggle-row-wrap.housing-toggle .arrow-btn {
-    color: #000000 !important;
-  }
-  #hb-dashboard .toggle-row-wrap.merrf-toggle {
-    background-color: #DE353E !important;
-    color: #ffffff !important;
-  }
-  #hb-dashboard .toggle-row-wrap.merrf-toggle .arrow-btn {
-    color: #ffffff !important;
-  }
-  #hb-dashboard .toggle-row-wrap.inventory-toggle {
-    background-color: #d9d9d9 !important;
-    color: #000000 !important;
-  }
-  #hb-dashboard .toggle-row-wrap.inventory-toggle .arrow-btn {
-    color: #000000 !important;
-  }
-
   #hb-dashboard .toggle-row {
     display: flex !important;
     align-items: center;
@@ -165,21 +210,21 @@ title: Hartley Bay Maintenance Management
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    color: inherit;
+    color: var(--hb-ink);
     width: auto !important;
     height: auto !important;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
-    line-height: 1;
     cursor: pointer;
-    padding: 4px !important;
+    padding: 8px !important;
     margin: 0 !important;
     transition: opacity 0.15s ease;
   }
-  #hb-dashboard .arrow-btn:hover {
-    opacity: 0.6;
+  #hb-dashboard .arrow-btn:hover { opacity: 0.55; }
+  #hb-dashboard .arrow-btn:focus-visible {
+    outline: 2px solid var(--hb-red);
+    border-radius: 4px;
   }
   #hb-dashboard .arrow-btn svg {
     width: 12px;
@@ -187,49 +232,49 @@ title: Hartley Bay Maintenance Management
     display: block;
   }
   #hb-dashboard .toggle-mode {
-    font-weight: 500;
-    font-size: 0.9rem;
-    opacity: 0.85;
-    min-width: 70px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    min-width: 80px;
     text-align: center;
   }
   #hb-dashboard .toggle-dots {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 6px;
-    margin-top: 8px;
+    gap: 4px;
+    margin-top: 4px;
   }
   #hb-dashboard .toggle-dots .dot {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
+    box-sizing: content-box;
+    padding: 3px;
+    background-clip: content-box;
     border-radius: 50%;
-    background-color: currentColor;
-    opacity: 0.35;
+    background-color: var(--hb-ink);
+    opacity: 0.3;
     cursor: pointer;
     transition: opacity 0.15s ease, transform 0.15s ease;
   }
-  #hb-dashboard .toggle-dots .dot:hover {
-    opacity: 0.7;
-  }
+  #hb-dashboard .toggle-dots .dot:hover { opacity: 0.6; }
   #hb-dashboard .toggle-dots .dot.active {
     opacity: 1;
-    transform: scale(1.4);
+    background-color: var(--hb-red);
+    transform: scale(1.25);
   }
-  #hb-dashboard .thumb-wrap {
-    position: relative;
-  }
+
+  /* Info button + popover */
   #hb-dashboard .info-btn {
     position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 16px;
-    height: 16px;
+    top: 16px;
+    right: 8px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.55);
+    background: var(--hb-ink);
     color: #ffffff;
-    border: 1.5px solid rgba(255, 255, 255, 0.8);
-    font-size: 0.6rem;
+    border: 2px solid #ffffff;
+    font-size: 0.85rem;
     font-weight: 700;
     font-style: italic;
     font-family: Georgia, 'Times New Roman', serif;
@@ -244,18 +289,18 @@ title: Hartley Bay Maintenance Management
   }
   #hb-dashboard .info-btn:hover,
   #hb-dashboard .info-btn:focus-visible {
-    background: rgba(0, 0, 0, 0.85);
+    background: var(--hb-red);
   }
   #hb-dashboard .info-popover {
     position: absolute;
-    top: 28px;
-    right: 6px;
-    width: 200px;
-    max-width: calc(100% - 12px);
-    background: rgba(0, 0, 0, 0.92);
+    top: 48px;
+    right: 8px;
+    width: 210px;
+    max-width: calc(100% - 16px);
+    background: rgba(23, 23, 23, 0.96);
     color: #ffffff;
-    font-size: 0.78rem;
-    line-height: 1.35;
+    font-size: 0.85rem;
+    line-height: 1.4;
     padding: 10px 12px;
     border-radius: 8px;
     z-index: 5;
@@ -263,9 +308,9 @@ title: Hartley Bay Maintenance Management
     box-shadow: 0 4px 10px rgba(0,0,0,0.35);
     display: none;
   }
-  #hb-dashboard .info-popover.open {
-    display: block;
-  }
+  #hb-dashboard .info-popover.open { display: block; }
+
+  /* ---------- Footer ---------- */
   #hb-dashboard .page-footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
@@ -282,23 +327,19 @@ title: Hartley Bay Maintenance Management
     background-color: #171717 !important;
     color: #ffffff !important;
     font-size: 0.85rem !important;
-    opacity: 0.95 !important;
     line-height: 1.4 !important;
     border: none !important;
     margin: 0 !important;
   }
-
-  /* Contact button + modal */
   #hb-dashboard .contact-btn {
     cursor: pointer;
     font: inherit;
     font-weight: 600 !important;
-    transition: opacity 0.15s ease, transform 0.15s ease;
+    transition: opacity 0.15s ease;
   }
-  #hb-dashboard .contact-btn:hover {
-    opacity: 0.85;
-    transform: translateY(-1px);
-  }
+  #hb-dashboard .contact-btn:hover { opacity: 0.85; }
+
+  /* ---------- Report / contact modal ---------- */
   #hb-dashboard .contact-modal-overlay {
     display: none;
     position: fixed;
@@ -309,49 +350,52 @@ title: Hartley Bay Maintenance Management
     justify-content: center;
     padding: 20px;
   }
-  #hb-dashboard .contact-modal-overlay.open {
-    display: flex;
-  }
+  #hb-dashboard .contact-modal-overlay.open { display: flex; }
   #hb-dashboard .contact-modal {
     position: relative;
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
     background: #171717;
     color: #ffffff;
     border-radius: 10px;
     padding: 24px 22px 22px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    animation: fadeInUp 0.25s ease forwards;
+    border-top: 6px solid var(--hb-red);
   }
   #hb-dashboard .contact-modal h3 {
-    margin: 0 0 16px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    margin: 0 0 6px;
+    font-size: 1.2rem;
+    font-weight: 700;
     text-align: center;
+    color: #ffffff;
+  }
+  #hb-dashboard .contact-modal .modal-sub {
+    margin: 0 0 16px;
+    font-size: 0.88rem;
+    text-align: center;
+    opacity: 0.8;
   }
   #hb-dashboard .contact-modal-close {
     position: absolute;
-    top: 10px;
+    top: 12px;
     right: 12px;
     background: transparent;
     border: none;
     color: #ffffff;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     line-height: 1;
     cursor: pointer;
     padding: 4px;
     opacity: 0.75;
   }
-  #hb-dashboard .contact-modal-close:hover {
-    opacity: 1;
-  }
+  #hb-dashboard .contact-modal-close:hover { opacity: 1; }
   #hb-dashboard .contact-modal form {
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
   #hb-dashboard .contact-modal label {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 500;
     opacity: 0.9;
     margin-bottom: -6px;
@@ -376,79 +420,86 @@ title: Hartley Bay Maintenance Management
   }
   #hb-dashboard .contact-submit-btn {
     margin-top: 4px;
-    padding: 10px 16px;
+    padding: 11px 16px;
     border-radius: 999px;
     border: none;
-    background: #ffffff;
-    color: #171717;
-    font-weight: 600;
-    font-size: 0.9rem;
+    background: var(--hb-red);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
     cursor: pointer;
-    transition: opacity 0.15s ease;
+    transition: background 0.15s ease;
   }
-  #hb-dashboard .contact-submit-btn:hover {
-    opacity: 0.85;
-  }
-  #hb-dashboard .contact-submit-btn:disabled {
-    opacity: 0.6;
-    cursor: default;
-  }
+  #hb-dashboard .contact-submit-btn:hover { background: var(--hb-red-dark); }
+  #hb-dashboard .contact-submit-btn:disabled { opacity: 0.6; cursor: default; }
   #hb-dashboard .contact-status-msg {
     margin: 4px 0 0;
     font-size: 0.85rem;
     text-align: center;
     min-height: 1em;
   }
-  #hb-dashboard .contact-status-msg.success {
-    color: #6fd68a;
-  }
-  #hb-dashboard .contact-status-msg.error {
-    color: #ff8080;
-  }
+  #hb-dashboard .contact-status-msg.success { color: #6fd68a; }
+  #hb-dashboard .contact-status-msg.error { color: #ff8080; }
 
+  /* ---------- Responsive ---------- */
   @media screen and (max-width: 900px) {
-    #hb-dashboard .dash-grid {
-      flex-wrap: wrap;
+    #hb-dashboard .dash-grid { flex-wrap: wrap; }
+    #hb-dashboard .dash-card { flex: 1 1 240px; max-width: 320px; }
+  }
+  @media screen and (max-width: 700px) {
+    #hb-dashboard .report-card {
+      flex-direction: column;
+      text-align: center;
+      padding: 24px 20px;
+      gap: 14px;
     }
-    #hb-dashboard .dash-card {
-      flex: 1 1 260px;
-      max-width: 320px;
-    }
+    #hb-dashboard .report-title { font-size: 1.45rem; }
+    #hb-dashboard .report-action { width: 100%; box-sizing: border-box; text-align: center; }
   }
   @media screen and (max-width: 600px) {
-    #hb-dashboard .dash-card {
-      width: 100%;
-      max-width: 320px;
-    }
-    #hb-dashboard .dash-grid {
-      gap: 20px;
-      margin-top: 24px;
-    }
+    #hb-dashboard .dash-card { width: 100%; max-width: 320px; }
+    #hb-dashboard .dash-grid { gap: 20px; }
+    #hb-dashboard .mgmt-label { flex-wrap: wrap; text-align: center; border-radius: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #hb-dashboard * { transition: none !important; }
   }
 </style>
 
+<!-- REPORT A PROBLEM (everyone) -->
+<button class="report-card" type="button" id="hb-report-btn">
+  <svg class="icon report-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+  <span class="report-text">
+    <span class="report-title">Report a problem</span>
+    <span class="report-desc">Something broken or unsafe? Tell the Maintenance Office what's wrong and where.</span>
+  </span>
+  <span class="report-action">Send a report</span>
+</button>
+
+<!-- MANAGEMENT SECTION -->
+<div class="mgmt-label">
+  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+  Management dashboards <span>Password required</span>
+</div>
+
 <div class="dash-grid">
   <!-- 1. GENERAL MAINTENANCE CARD -->
-<div class="dash-card toggle-card"
-     data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9"
-     data-survey-url="https://arcg.is/1XziXe1"
-     data-report-url="https://arcgis.com"
-     data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
-     data-dashboard-img="/assets/images/GM_Dashboard.jpg"
-     data-survey-img="/assets/images/GM_Survey.jpg"
-     data-report-img="/assets/images/GM_Report.jpg"
-     data-dataset-img="/assets/images/GM_Dataset.jpg"
-     data-dashboard-desc="Live map and summary charts of all open general maintenance work orders."
-     data-survey-desc="Submit a new general maintenance request or work order."
-     data-report-desc="Browse submitted general maintenance requests in a table."
-     data-dataset-desc="Query the raw general maintenance dataset.">
+  <div class="dash-card toggle-card"
+       data-dashboard-url="https://gfnt.maps.arcgis.com/apps/dashboards/c81a853e25e24c2981402f59417701b9"
+       data-survey-url="https://arcg.is/1XziXe1"
+       data-report-url="https://arcgis.com"
+       data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
+       data-dashboard-desc="Live map and summary charts of all open general maintenance work orders."
+       data-survey-desc="Submit a new general maintenance request or work order."
+       data-report-desc="Browse submitted general maintenance requests in a table."
+       data-dataset-desc="Query the raw general maintenance dataset.">
+    <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
     <div class="info-popover"></div>
-    <div class="dash-title">General Maintenance</div>
-    <div class="thumb-wrap">
-      <div class="dash-thumb general" tabindex="0" role="link">
-        <img src="/assets/images/GM_Dashboard.jpg" alt="General Maintenance" width="280" height="150">
-      </div>
+    <div class="dash-link" tabindex="0" role="link">
+      <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      <div class="dash-title">General Maintenance</div>
+      <p class="dash-desc">Track general maintenance work orders</p>
     </div>
     <div class="toggle-row-wrap">
       <div class="toggle-row">
@@ -476,15 +527,15 @@ title: Hartley Bay Maintenance Management
        data-report-desc="Browse submitted housing maintenance requests in a table."
        data-dataset-desc="Query the raw housing maintenance dataset."
        data-box-desc="Open supporting housing maintenance files and documents in Box.">
+    <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
     <div class="info-popover"></div>
-    <div class="dash-title housing-header">Housing Maintenance</div>
-    <div class="thumb-wrap">
-      <div class="dash-thumb housing" tabindex="0" role="link">
-        <img src="/assets/images/HM_Dashboard.jpg" alt="Housing Maintenance">
-      </div>
+    <div class="dash-link" tabindex="0" role="link">
+      <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      <div class="dash-title">Housing Maintenance</div>
+      <p class="dash-desc">Track housing repairs and costs</p>
     </div>
-    <div class="toggle-row-wrap housing-toggle">
+    <div class="toggle-row-wrap">
       <div class="toggle-row">
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
@@ -508,15 +559,16 @@ title: Hartley Bay Maintenance Management
        data-survey-desc="Submit a new MERRF maintenance request."
        data-report-desc="Browse submitted MERRF maintenance requests in a table."
        data-dataset-desc="Query the raw MERRF maintenance dataset.">
+    <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
     <div class="info-popover"></div>
-    <div class="dash-title merrf-header">MERRF Maintenance</div>
-    <div class="thumb-wrap">
-      <div class="dash-thumb merrf" tabindex="0" role="link">
-        <img src="/assets/images/MERRF_Dashboard.jpg" alt="MERRF Maintenance">
-      </div>
+    <div class="dash-link" tabindex="0" role="link">
+      <!-- Placeholder icon (life buoy). Swap for one that fits what MERRF covers. -->
+      <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg>
+      <div class="dash-title">MERRF Maintenance</div>
+      <p class="dash-desc">Track MERRF maintenance and equipment</p>
     </div>
-    <div class="toggle-row-wrap merrf-toggle">
+    <div class="toggle-row-wrap">
       <div class="toggle-row">
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
@@ -530,23 +582,21 @@ title: Hartley Bay Maintenance Management
     </div>
   </div>
 
-  <!-- 4. INVENTORY TRACKER CARD (now toggleable: Inventory / Transactions) -->
+  <!-- 4. INVENTORY TRACKER CARD (Inventory / Transactions) -->
   <div class="dash-card toggle-card"
        data-inventory-url="https://gfnt.maps.arcgis.com/apps/dashboards/2c40e298c85b485bba89f43bac6b18ec"
        data-transactions-url="https://gfnt.maps.arcgis.com/apps/dashboards/a0f07e1d734c4806b95ed1f199beadb8"
-       data-inventory-img="/assets/images/Inventory.jpg"
-       data-transactions-img="/assets/images/Inventory.jpg"
        data-inventory-desc="View current stock levels for tracked inventory items."
        data-transactions-desc="View the history of inventory check-ins and check-outs.">
+    <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
     <div class="info-popover"></div>
-    <div class="dash-title inventory-header">Inventory Tracker</div>
-    <div class="thumb-wrap">
-      <div class="dash-thumb inventory" tabindex="0" role="link">
-        <img src="/assets/images/Inventory.jpg" alt="Inventory Tracker">
-      </div>
+    <div class="dash-link" tabindex="0" role="link">
+      <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/><path d="m7.5 4.27 9 5.15"/></svg>
+      <div class="dash-title">Inventory Tracker</div>
+      <p class="dash-desc">Check stock levels and item history</p>
     </div>
-    <div class="toggle-row-wrap inventory-toggle">
+    <div class="toggle-row-wrap">
       <div class="toggle-row">
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
@@ -561,7 +611,7 @@ title: Hartley Bay Maintenance Management
   </div>
 </div>
 
-<!-- CONTACT SECTION -->
+<!-- FOOTER -->
 <div class="page-footer">
   <span class="footer-pill">&copy; 2026 Gitga'at First Nation</span>
   <button class="footer-pill contact-btn" type="button" id="hb-contact-btn">Contact Maintenance Office</button>
@@ -570,11 +620,14 @@ title: Hartley Bay Maintenance Management
 <div class="contact-modal-overlay" id="hb-contact-overlay">
   <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="hb-contact-title">
     <button class="contact-modal-close" type="button" id="hb-contact-close" aria-label="Close">&times;</button>
-    <h3 id="hb-contact-title">Contact Maintenance Office</h3>
+    <h3 id="hb-contact-title">Report a problem or contact the office</h3>
+    <p class="modal-sub">Include where the problem is, so the team can find it.</p>
     <form id="hb-contact-form">
       <label for="hb-contact-name">Name</label>
       <input type="text" id="hb-contact-name" name="name" required>
-      <label for="hb-contact-details">Details</label>
+      <label for="hb-contact-reach">Phone or email (optional)</label>
+      <input type="text" id="hb-contact-reach" name="reach">
+      <label for="hb-contact-details">What's the problem, and where?</label>
       <textarea id="hb-contact-details" name="details" rows="5" required></textarea>
       <button type="submit" class="contact-submit-btn">Send</button>
     </form>
@@ -626,8 +679,7 @@ title: Hartley Bay Maintenance Management
         }
       }
 
-      var thumb = card.querySelector('.dash-thumb');
-      var thumbImg = card.querySelector('.dash-thumb img');
+      var link = card.querySelector('.dash-link');
       var infoBtn = card.querySelector('.info-btn');
       var popover = card.querySelector('.info-popover');
       var modeLabel = card.querySelector('.toggle-mode');
@@ -639,8 +691,27 @@ title: Hartley Bay Maintenance Management
         return card.getAttribute('data-' + options[index].key + '-desc') || options[index].label;
       }
 
-      // Build one dot per option, up front. Each dot is clickable and
-      // jumps straight to its corresponding option.
+      function currentUrl() {
+        return card.getAttribute('data-' + options[index].key + '-url');
+      }
+
+      function render() {
+        modeLabel.textContent = options[index].label;
+        if (popover) {
+          popover.textContent = currentDesc();
+        }
+        if (link) {
+          link.setAttribute('aria-label', card.querySelector('.dash-title').textContent + ': open ' + options[index].label);
+        }
+        if (dotsWrap) {
+          var dots = dotsWrap.querySelectorAll('.dot');
+          dots.forEach(function (d, i) {
+            d.classList.toggle('active', i === index);
+          });
+        }
+      }
+
+      // One clickable dot per option.
       if (dotsWrap) {
         options.forEach(function (opt, i) {
           var dot = document.createElement('span');
@@ -668,45 +739,8 @@ title: Hartley Bay Maintenance Management
           dotsWrap.appendChild(dot);
         });
       }
-      if (popover) {
-        popover.textContent = currentDesc();
-      }
 
-      function currentUrl() {
-        return card.getAttribute('data-' + options[index].key + '-url');
-      }
-
-      function currentImg() {
-        return card.getAttribute('data-' + options[index].key + '-img');
-      }
-
-      function render() {
-        modeLabel.textContent = options[index].label;
-        var img = currentImg();
-        if (img && thumbImg) {
-          thumbImg.classList.remove('loaded');
-          thumbImg.onload = function () { thumbImg.classList.add('loaded'); };
-          thumbImg.src = img;
-        }
-        if (popover) {
-          popover.textContent = currentDesc();
-        }
-        if (dotsWrap) {
-          var dots = dotsWrap.querySelectorAll('.dot');
-          dots.forEach(function (d, i) {
-            d.classList.toggle('active', i === index);
-          });
-        }
-      }
-
-      // Ensure the initial image fades in too
-      if (thumbImg) {
-        if (thumbImg.complete) {
-          thumbImg.classList.add('loaded');
-        } else {
-          thumbImg.onload = function () { thumbImg.classList.add('loaded'); };
-        }
-      }
+      render();
 
       function navigate(targetUrl, newTab) {
         if (!targetUrl || targetUrl === '#') return;
@@ -717,30 +751,26 @@ title: Hartley Bay Maintenance Management
         }
       }
 
-      if (thumb) {
-        thumb.addEventListener('mousedown', function (e) {
-          if (e.button === 1) { // middle mouse button
-            e.preventDefault();
-          }
+      if (link) {
+        link.addEventListener('mousedown', function (e) {
+          if (e.button === 1) e.preventDefault();
         });
 
-        thumb.addEventListener('click', function (e) {
-          var openInNewTab = e.ctrlKey || e.metaKey; // Ctrl (Win/Linux) or Cmd (Mac)
-          navigate(currentUrl(), openInNewTab);
+        link.addEventListener('click', function (e) {
+          navigate(currentUrl(), e.ctrlKey || e.metaKey);
         });
 
-        thumb.addEventListener('auxclick', function (e) {
-          if (e.button === 1) { // middle mouse button
+        link.addEventListener('auxclick', function (e) {
+          if (e.button === 1) {
             e.preventDefault();
             navigate(currentUrl(), true);
           }
         });
 
-        thumb.addEventListener('keydown', function (e) {
+        link.addEventListener('keydown', function (e) {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            var openInNewTab = e.ctrlKey || e.metaKey;
-            navigate(currentUrl(), openInNewTab);
+            navigate(currentUrl(), e.ctrlKey || e.metaKey);
           }
         });
       }
@@ -779,13 +809,15 @@ title: Hartley Bay Maintenance Management
     });
   })();
 
-  // Contact modal
+  // Report / contact modal
   (function () {
     var contactBtn = document.getElementById('hb-contact-btn');
+    var reportBtn = document.getElementById('hb-report-btn');
     var overlay = document.getElementById('hb-contact-overlay');
     var closeBtn = document.getElementById('hb-contact-close');
     var form = document.getElementById('hb-contact-form');
     var nameInput = document.getElementById('hb-contact-name');
+    var reachInput = document.getElementById('hb-contact-reach');
     var detailsInput = document.getElementById('hb-contact-details');
 
     if (!contactBtn || !overlay || !form) return;
@@ -805,9 +837,12 @@ title: Hartley Bay Maintenance Management
       }
     }
 
-    contactBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      openModal();
+    [contactBtn, reportBtn].forEach(function (btn) {
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        openModal();
+      });
     });
 
     closeBtn.addEventListener('click', function (e) {
@@ -836,6 +871,7 @@ title: Hartley Bay Maintenance Management
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = nameInput.value.trim();
+      var reach = reachInput.value.trim();
       var details = detailsInput.value.trim();
 
       submitBtn.disabled = true;
@@ -848,8 +884,9 @@ title: Hartley Bay Maintenance Management
         headers: { 'Accept': 'application/json' },
         body: new URLSearchParams({
           name: name,
+          reach: reach,
           message: details,
-          _subject: 'Website Contact from ' + name
+          _subject: 'Website report from ' + name
         })
       })
         .then(function (response) {
