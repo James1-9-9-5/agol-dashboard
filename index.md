@@ -35,7 +35,7 @@ title: Hartley Bay Maintenance Management
     box-sizing: border-box;
     border: 4px solid #ffffff;
     border-radius: 10px;
-    background: #C8102E;
+    background: var(--hb-red);
     color: #ffffff;
     box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     cursor: pointer;
@@ -227,7 +227,7 @@ title: Hartley Bay Maintenance Management
     display: flex !important;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
   }
   #hb-dashboard .arrow-btn {
     background: transparent !important;
@@ -254,18 +254,24 @@ title: Hartley Bay Maintenance Management
     height: 12px;
     display: block;
   }
+  /* Mode label is kept for screen readers only (the card title already names the view) */
   #hb-dashboard .toggle-mode {
-    font-weight: 600;
-    font-size: 0.95rem;
-    min-width: 80px;
-    text-align: center;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
   #hb-dashboard .toggle-dots {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 4px;
-    margin-top: 4px;
+    margin: 0;
   }
   #hb-dashboard .toggle-dots .dot {
     width: 8px;
@@ -499,6 +505,12 @@ title: Hartley Bay Maintenance Management
   <span class="report-action">Send a report</span>
 </button>
 
+<!-- MANAGEMENT SECTION -->
+<div class="mgmt-label">
+  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+  Management dashboards <span>Password required</span>
+</div>
+
 <div class="dash-grid">
   <!-- 1. GENERAL MAINTENANCE CARD -->
   <div class="dash-card toggle-card"
@@ -508,9 +520,9 @@ title: Hartley Bay Maintenance Management
        data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
        data-dashboard-desc="Live map and summary charts of all open general maintenance work orders."
        data-survey-desc="Submit a new general maintenance request or work order."
-       data-report-desc="Run reports on both current and previous survey submissions."
+       data-report-desc="Browse submitted general maintenance requests in a table."
        data-dataset-desc="Query the raw general maintenance dataset.">
-    <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required."><title>Password required.</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
     <div class="info-popover"></div>
     <div class="dash-link" tabindex="0" role="link">
@@ -523,12 +535,12 @@ title: Hartley Bay Maintenance Management
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
         </button>
-        <span class="toggle-mode">Dashboard</span>
+        <div class="toggle-dots"></div>
         <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
         </button>
+        <span class="toggle-mode" aria-live="polite">Dashboard</span>
       </div>
-      <div class="toggle-dots"></div>
     </div>
   </div>
 
@@ -541,7 +553,7 @@ title: Hartley Bay Maintenance Management
        data-box-url="https://tapestryresearch.app.box.com/folder/346256879414"
        data-dashboard-desc="Live map and summary charts of housing maintenance activity and costs."
        data-survey-desc="Submit a new housing maintenance request."
-       data-report-desc="Run reports on both current and previous survey submissions."
+       data-report-desc="Browse submitted housing maintenance requests in a table."
        data-dataset-desc="Query the raw housing maintenance dataset."
        data-box-desc="Open supporting housing maintenance files and documents in Box.">
     <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -557,12 +569,12 @@ title: Hartley Bay Maintenance Management
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
         </button>
-        <span class="toggle-mode">Dashboard</span>
+        <div class="toggle-dots"></div>
         <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
         </button>
+        <span class="toggle-mode" aria-live="polite">Dashboard</span>
       </div>
-      <div class="toggle-dots"></div>
     </div>
   </div>
 
@@ -574,7 +586,7 @@ title: Hartley Bay Maintenance Management
        data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
        data-dashboard-desc="Live map and summary charts of MERRF maintenance activity and equipment status."
        data-survey-desc="Submit a new MERRF maintenance request."
-       data-report-desc="Run reports on both current and previous survey submissions."
+       data-report-desc="Browse submitted MERRF maintenance requests in a table."
        data-dataset-desc="Query the raw MERRF maintenance dataset.">
     <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
@@ -590,12 +602,12 @@ title: Hartley Bay Maintenance Management
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
         </button>
-        <span class="toggle-mode">Dashboard</span>
+        <div class="toggle-dots"></div>
         <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
         </button>
+        <span class="toggle-mode" aria-live="polite">Dashboard</span>
       </div>
-      <div class="toggle-dots"></div>
     </div>
   </div>
 
@@ -618,21 +630,21 @@ title: Hartley Bay Maintenance Management
         <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="16,2 6,12 16,22"/></svg>
         </button>
-        <span class="toggle-mode">Inventory</span>
+        <div class="toggle-dots"></div>
         <button class="arrow-btn" type="button" data-dir="next" aria-label="Next option">
           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,2 18,12 8,22"/></svg>
         </button>
+        <span class="toggle-mode" aria-live="polite">Inventory</span>
       </div>
-      <div class="toggle-dots"></div>
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <div class="page-footer">
-  <span class="footer-pill">&copy; {{ site.time | date: "%Y" }} Gitga'at First Nation</span>
+  <span class="footer-pill">&copy; 2026 Gitga'at First Nation</span>
+  <button class="footer-pill contact-btn" type="button" id="hb-contact-btn">Contact Maintenance Office</button>
 </div>
-
 
 <div class="contact-modal-overlay" id="hb-contact-overlay">
   <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="hb-contact-title">
@@ -690,7 +702,7 @@ title: Hartley Bay Maintenance Management
       },
       report: {
         suffix: 'Report',
-        desc: 'Run reports',
+        desc: 'Browse submitted requests',
         icon: '<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>'
       },
       dataset: {
