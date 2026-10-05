@@ -99,21 +99,13 @@ title: Hartley Bay Maintenance Management
     max-width: 320px;
     min-width: 220px;
     color: var(--hb-ink);
-    border: 4px solid #ffffff;
-    border-top: 0;
+    border: 4px solid var(--hb-red);
     border-radius: 10px;
     overflow: hidden !important;
     background: var(--hb-card);
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     transition: box-shadow 0.15s ease, transform 0.15s ease;
     position: relative;
-  }
-  #hb-dashboard .dash-card::before {
-    content: "";
-    display: block;
-    height: 8px;
-    background: var(--hb-red);
-    flex: 0 0 auto;
   }
   #hb-dashboard .dash-card:hover {
     box-shadow: 0 8px 20px rgba(0,0,0,0.35);
@@ -126,7 +118,7 @@ title: Hartley Bay Maintenance Management
     align-items: center;
     text-align: center;
     gap: 6px;
-    padding: 28px 18px 22px;
+    padding: 32px 18px 22px;
     cursor: pointer;
     flex: 1 1 auto;
   }
@@ -196,7 +188,7 @@ title: Hartley Bay Maintenance Management
     margin: 0 !important;
     background: #ffffff !important;
     color: var(--hb-ink) !important;
-    border-top: 1px solid var(--hb-line);
+    border-top: 4px solid var(--hb-red);
   }
   #hb-dashboard .toggle-row {
     display: flex !important;
@@ -554,7 +546,7 @@ title: Hartley Bay Maintenance Management
     <div class="info-popover"></div>
     <div class="dash-link" tabindex="0" role="link">
       <!-- Placeholder icon (life buoy). Swap for one that fits what MERRF covers. -->
-      <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>
+      <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg>
       <div class="dash-title">MERRF Maintenance</div>
       <p class="dash-desc">Track MERRF maintenance and equipment</p>
     </div>
@@ -653,7 +645,7 @@ title: Hartley Bay Maintenance Management
       dashboard: {
         suffix: 'Dashboard',
         desc: 'View live map and charts',
-        icon: '<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>'
+        icon: '<g stroke-width="1.4"><rect x="1.5" y="3" width="21" height="18" rx="2.5"/><path d="M7 14.2V10.8A3.4 3.4 0 1 0 10.4 14.2Z"/><path d="M8.7 13V9.6A3.4 3.4 0 0 1 12.1 13Z"/><path d="M13.5 6.6h7"/><path d="M13.5 9h7"/><path d="M14.5 18.5V16"/><path d="M17.5 18.5V14"/><path d="M20.5 18.5V12"/></g>'
       },
       survey: {
         suffix: 'Survey',
@@ -662,7 +654,7 @@ title: Hartley Bay Maintenance Management
       },
       report: {
         suffix: 'Report',
-        desc: 'Run reports',
+        desc: 'Run Reports',
         icon: '<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>'
       },
       dataset: {
