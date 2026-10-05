@@ -554,7 +554,7 @@ title: Hartley Bay Maintenance Management
     <div class="info-popover"></div>
     <div class="dash-link" tabindex="0" role="link">
       <!-- Placeholder icon (life buoy). Swap for one that fits what MERRF covers. -->
-      <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="15" r="4"/><circle cx="18" cy="15" r="4"/><path d="M14 15a2 2 0 0 0-2-2 2 2 0 0 0-2 2"/><path d="M2.5 13 5 7c.7-1.3 1.4-2 3-2"/><path d="M21.5 13 19 7c-.7-1.3-1.5-2-3-2"/></svg>
+      <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>
       <div class="dash-title">MERRF Maintenance</div>
       <p class="dash-desc">Track MERRF maintenance and equipment</p>
     </div>
