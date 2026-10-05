@@ -83,31 +83,6 @@ title: Hartley Bay Maintenance Management
     white-space: nowrap;
   }
 
-  /* ---------- Management section label ---------- */
-  #hb-dashboard .mgmt-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: fit-content;
-    margin: 44px auto 0;
-    padding: 10px 22px;
-    border-radius: 999px;
-    background: rgba(23, 23, 23, 0.92);
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 600;
-  }
-  #hb-dashboard .mgmt-label svg {
-    width: 16px;
-    height: 16px;
-    flex: 0 0 auto;
-  }
-  #hb-dashboard .mgmt-label span {
-    font-weight: 400;
-    opacity: 0.85;
-  }
-
   /* ---------- Management cards ---------- */
   #hb-dashboard .dash-grid {
     display: flex;
@@ -360,13 +335,6 @@ title: Hartley Bay Maintenance Management
     border: none !important;
     margin: 0 !important;
   }
-  #hb-dashboard .contact-btn {
-    cursor: pointer;
-    font: inherit;
-    font-weight: 600 !important;
-    transition: opacity 0.15s ease;
-  }
-  #hb-dashboard .contact-btn:hover { opacity: 0.85; }
 
   /* ---------- Report / contact modal ---------- */
   #hb-dashboard .contact-modal-overlay {
@@ -488,7 +456,6 @@ title: Hartley Bay Maintenance Management
   @media screen and (max-width: 600px) {
     #hb-dashboard .dash-card { width: 100%; max-width: 320px; }
     #hb-dashboard .dash-grid { gap: 20px; }
-    #hb-dashboard .mgmt-label { flex-wrap: wrap; text-align: center; border-radius: 16px; }
   }
   @media (prefers-reduced-motion: reduce) {
     #hb-dashboard * { transition: none !important; }
@@ -504,12 +471,6 @@ title: Hartley Bay Maintenance Management
   </span>
   <span class="report-action">Send a report</span>
 </button>
-
-<!-- MANAGEMENT SECTION -->
-<div class="mgmt-label">
-  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-  Management dashboards <span>Password required</span>
-</div>
 
 <div class="dash-grid">
   <!-- 1. GENERAL MAINTENANCE CARD -->
@@ -643,7 +604,6 @@ title: Hartley Bay Maintenance Management
 <!-- FOOTER -->
 <div class="page-footer">
   <span class="footer-pill">&copy; 2026 Gitga'at First Nation</span>
-  <button class="footer-pill contact-btn" type="button" id="hb-contact-btn">Contact Maintenance Office</button>
 </div>
 
 <div class="contact-modal-overlay" id="hb-contact-overlay">
@@ -702,7 +662,7 @@ title: Hartley Bay Maintenance Management
       },
       report: {
         suffix: 'Report',
-        desc: 'Browse submitted requests',
+        desc: 'Run Reports',
         icon: '<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>'
       },
       dataset: {
@@ -905,7 +865,6 @@ title: Hartley Bay Maintenance Management
 <script>
   // Report / contact modal (separate script so a card error can never block it)
   (function () {
-    var contactBtn = document.getElementById('hb-contact-btn');
     var reportBtn = document.getElementById('hb-report-btn');
     var overlay = document.getElementById('hb-contact-overlay');
     var closeBtn = document.getElementById('hb-contact-close');
@@ -914,7 +873,7 @@ title: Hartley Bay Maintenance Management
     var reachInput = document.getElementById('hb-contact-reach');
     var detailsInput = document.getElementById('hb-contact-details');
 
-    if (!contactBtn || !overlay || !form) return;
+    if (!reportBtn || !overlay || !form) return;
 
     function openModal() {
       overlay.classList.add('open');
@@ -931,7 +890,7 @@ title: Hartley Bay Maintenance Management
       }
     }
 
-    [contactBtn, reportBtn].forEach(function (btn) {
+    [reportBtn].forEach(function (btn) {
       if (!btn) return;
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
