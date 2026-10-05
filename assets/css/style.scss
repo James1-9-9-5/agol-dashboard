@@ -6,8 +6,10 @@ html, body {
   width: 100%;
 }
 body {
+  /* Slightly darker overlay than before (0.4 -> 0.5) so white pills and
+     the wide red card stay legible over the busy parts of the photo. */
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/assets/images/HB.jpg");
   background-size: cover;
   background-position: center;
@@ -28,7 +30,7 @@ main.main-content {
   margin-right: auto;
 }
 .page-header {
-  background-color: #171717;
+  background-color: #1A1A1A;
   background-image: none;
   color: #ffffff;
   position: relative;
@@ -36,10 +38,10 @@ main.main-content {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 .page-header .project-tagline {
-  color: #d9d9d9;
+  color: #E6E1DA;
   opacity: 1;
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 .page-header .btn {
   display: none;
