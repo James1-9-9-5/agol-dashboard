@@ -630,8 +630,9 @@ title: Hartley Bay Maintenance Management
 
 <!-- FOOTER -->
 <div class="page-footer">
-  <span class="footer-pill">&copy; 2026 Gitga'at First Nation</span>
+  <span class="footer-pill">&copy; {{ site.time | date: "%Y" }} Gitga'at First Nation</span>
 </div>
+
 
 <div class="contact-modal-overlay" id="hb-contact-overlay">
   <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="hb-contact-title">
