@@ -514,7 +514,7 @@ title: Hartley Bay Maintenance Management
        data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
        data-dashboard-desc="Live map and summary charts of all open general maintenance work orders."
        data-survey-desc="Submit a new general maintenance request or work order."
-       data-report-desc="Run reports on all survey submissions."
+       data-report-desc="Browse submitted general maintenance requests in a table."
        data-dataset-desc="Query the raw general maintenance dataset.">
     <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
@@ -547,7 +547,7 @@ title: Hartley Bay Maintenance Management
        data-box-url="https://tapestryresearch.app.box.com/folder/346256879414"
        data-dashboard-desc="Live map and summary charts of housing maintenance activity and costs."
        data-survey-desc="Submit a new housing maintenance request."
-       data-report-desc="Run reports on all survey submissions."
+       data-report-desc="Browse submitted housing maintenance requests in a table."
        data-dataset-desc="Query the raw housing maintenance dataset."
        data-box-desc="Open supporting housing maintenance files and documents in Box.">
     <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -580,7 +580,7 @@ title: Hartley Bay Maintenance Management
        data-dataset-url="https://gfnt.maps.arcgis.com/home/item.html?id=795135d238ed4ecd8e923ffff93d1884&dataTabView=table#data"
        data-dashboard-desc="Live map and summary charts of MERRF maintenance activity and equipment status."
        data-survey-desc="Submit a new MERRF maintenance request."
-       data-report-desc="Run reports on all survey submissions."
+       data-report-desc="Browse submitted MERRF maintenance requests in a table."
        data-dataset-desc="Query the raw MERRF maintenance dataset.">
     <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
@@ -634,7 +634,11 @@ title: Hartley Bay Maintenance Management
   </div>
 </div>
 
-
+<!-- FOOTER -->
+<div class="page-footer">
+  <span class="footer-pill">&copy; 2026 Gitga'at First Nation</span>
+  <button class="footer-pill contact-btn" type="button" id="hb-contact-btn">Contact Maintenance Office</button>
+</div>
 
 <div class="contact-modal-overlay" id="hb-contact-overlay">
   <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="hb-contact-title">
@@ -692,7 +696,7 @@ title: Hartley Bay Maintenance Management
       },
       report: {
         suffix: 'Report',
-        desc: 'Run reports',
+        desc: 'Browse submitted requests',
         icon: '<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>'
       },
       dataset: {
