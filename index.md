@@ -546,7 +546,7 @@ title: Hartley Bay Maintenance Management
     <div class="info-popover"></div>
     <div class="dash-link" tabindex="0" role="link">
       <!-- Placeholder icon (life buoy). Swap for one that fits what MERRF covers. -->
-      <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg>
+      <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>
       <div class="dash-title">MERRF Maintenance</div>
       <p class="dash-desc">Track MERRF maintenance and equipment</p>
     </div>
@@ -644,37 +644,37 @@ title: Hartley Bay Maintenance Management
     var VIEWS = {
       dashboard: {
         suffix: 'Dashboard',
-        desc: 'View live map and charts',
+        desc: 'View live map and charts.',
         icon: '<g stroke-width="1.4"><rect x="1.5" y="3" width="21" height="18" rx="2.5"/><path d="M7 14.2V10.8A3.4 3.4 0 1 0 10.4 14.2Z"/><path d="M8.7 13V9.6A3.4 3.4 0 0 1 12.1 13Z"/><path d="M13.5 6.6h7"/><path d="M13.5 9h7"/><path d="M14.5 18.5V16"/><path d="M17.5 18.5V14"/><path d="M20.5 18.5V12"/></g>'
       },
       survey: {
         suffix: 'Survey',
-        desc: 'Submit a new request',
+        desc: 'Submit a new request.',
         icon: '<rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>'
       },
       report: {
         suffix: 'Report',
-        desc: 'Run Reports',
+        desc: 'Run reports.',
         icon: '<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>'
       },
       dataset: {
         suffix: 'Dataset',
-        desc: 'Query the raw data',
+        desc: 'Query the raw data.',
         icon: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>'
       },
       box: {
         suffix: 'Files',
-        desc: 'Open supporting files',
+        desc: 'Open supporting files.',
         icon: '<path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>'
       },
       inventory: {
         title: 'Inventory Levels',
-        desc: 'Check current stock levels',
+        desc: 'Check current stock levels.',
         icon: null /* uses the card's original box icon */
       },
       transactions: {
         title: 'Inventory Transactions',
-        desc: 'See check-ins and check-outs',
+        desc: 'See check-ins and check-outs.',
         icon: '<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>'
       }
     };
