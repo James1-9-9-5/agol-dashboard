@@ -165,6 +165,29 @@ title: Hartley Bay Maintenance Management
     color: var(--hb-red);
     margin-bottom: 6px;
   }
+
+  /* Icon with small topic badge */
+  #hb-dashboard .icon-wrap {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 6px;
+  }
+  #hb-dashboard .icon-wrap .dash-icon { margin: 0; }
+  #hb-dashboard .icon-badge {
+    position: absolute;
+    right: -14px;
+    bottom: -6px;
+    width: 26px;
+    height: 26px;
+    padding: 4px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: var(--hb-red);
+    color: #ffffff;
+    border: 2px solid var(--hb-card);
+  }
+
   #hb-dashboard .dash-title {
     margin: 0 !important;
     padding: 0 !important;
@@ -658,6 +681,46 @@ title: Hartley Bay Maintenance Management
       if (e.key === 'Escape') closeAllPopovers();
     });
 
+    // What each view looks like on the card face (icon, title suffix, short text).
+    // The longer data-*-desc text still shows in the "i" popover.
+    var VIEWS = {
+      dashboard: {
+        suffix: 'Dashboard',
+        desc: 'View live map and charts',
+        icon: '<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>'
+      },
+      survey: {
+        suffix: 'Survey',
+        desc: 'Submit a new request',
+        icon: '<rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>'
+      },
+      report: {
+        suffix: 'Report',
+        desc: 'Browse submitted requests',
+        icon: '<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>'
+      },
+      dataset: {
+        suffix: 'Dataset',
+        desc: 'Query the raw data',
+        icon: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>'
+      },
+      box: {
+        suffix: 'Files',
+        desc: 'Open supporting files',
+        icon: '<path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>'
+      },
+      inventory: {
+        title: 'Inventory Levels',
+        desc: 'Check current stock levels',
+        icon: null /* uses the card's original box icon */
+      },
+      transactions: {
+        title: 'Inventory Transactions',
+        desc: 'See check-ins and check-outs',
+        icon: '<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>'
+      }
+    };
+
     cards.forEach(function (card) {
       var options;
 
@@ -687,6 +750,26 @@ title: Hartley Bay Maintenance Management
       var arrows = card.querySelectorAll('.arrow-btn');
       var index = 0;
 
+      var titleEl = card.querySelector('.dash-title');
+      var descEl = card.querySelector('.dash-desc');
+      var iconEl = card.querySelector('.dash-icon');
+      var baseTitle = titleEl.textContent;
+      var topicIcon = iconEl.innerHTML;
+
+      // Wrap the icon and add a small topic badge (not needed on the Inventory card)
+      if (!card.hasAttribute('data-transactions-url')) {
+        var wrap = document.createElement('div');
+        wrap.className = 'icon-wrap';
+        iconEl.parentNode.insertBefore(wrap, iconEl);
+        wrap.appendChild(iconEl);
+        var badge = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        badge.setAttribute('class', 'icon icon-badge');
+        badge.setAttribute('viewBox', '0 0 24 24');
+        badge.setAttribute('aria-hidden', 'true');
+        badge.innerHTML = topicIcon;
+        wrap.appendChild(badge);
+      }
+
       function currentDesc() {
         return card.getAttribute('data-' + options[index].key + '-desc') || options[index].label;
       }
@@ -696,16 +779,20 @@ title: Hartley Bay Maintenance Management
       }
 
       function render() {
-        modeLabel.textContent = options[index].label;
+        var opt = options[index];
+        var v = VIEWS[opt.key];
+        modeLabel.textContent = opt.label;
+        titleEl.textContent = v.title || (baseTitle + ' ' + v.suffix);
+        descEl.textContent = v.desc;
+        iconEl.innerHTML = v.icon || topicIcon;
         if (popover) {
           popover.textContent = currentDesc();
         }
         if (link) {
-          link.setAttribute('aria-label', card.querySelector('.dash-title').textContent + ': open ' + options[index].label);
+          link.setAttribute('aria-label', baseTitle + ': open ' + opt.label);
         }
         if (dotsWrap) {
-          var dots = dotsWrap.querySelectorAll('.dot');
-          dots.forEach(function (d, i) {
+          dotsWrap.querySelectorAll('.dot').forEach(function (d, i) {
             d.classList.toggle('active', i === index);
           });
         }
