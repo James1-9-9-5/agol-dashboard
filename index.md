@@ -510,7 +510,7 @@ title: Hartley Bay Maintenance Management
        data-survey-desc="Submit a new general maintenance request or work order."
        data-report-desc="Run reports on both current and previous survey submissions."
        data-dataset-desc="Query the raw general maintenance dataset.">
-    <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required."><title>Password required.</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
     <div class="info-popover"></div>
     <div class="dash-link" tabindex="0" role="link">
