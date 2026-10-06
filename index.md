@@ -40,12 +40,14 @@ title: Hartley Bay Maintenance Management
     box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     cursor: pointer;
     text-align: left;
+    text-decoration: none;
     font: inherit;
     transition: background 0.15s ease, box-shadow 0.15s ease;
   }
   #hb-dashboard .report-card:hover {
     background: var(--hb-red-dark);
     box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+    text-decoration: none;
   }
   #hb-dashboard .report-card:focus-visible {
     outline: 4px solid #ffffff;
@@ -455,14 +457,14 @@ title: Hartley Bay Maintenance Management
 </style>
 
 <!-- REPORT A PROBLEM (everyone) -->
-<button class="report-card" type="button" id="hb-report-btn">
+<a class="report-card" href="https://arcg.is/0b4znD" target="_blank" rel="noopener">
   <svg class="icon report-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
   <span class="report-text">
     <span class="report-title">Report a problem</span>
     <span class="report-desc">Something broken or unsafe? Tell the Maintenance Office what's wrong and where.</span>
   </span>
   <span class="report-action">Send a report</span>
-</button>
+</a>
 
 <div class="dash-grid">
   <!-- 1. GENERAL MAINTENANCE CARD -->
