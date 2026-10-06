@@ -255,7 +255,7 @@ title: Hartley Bay Maintenance Management
   #hb-dashboard .toggle-dots .dot:hover { background-color: #BDBDBD; }
   #hb-dashboard .toggle-dots .dot.active {
     opacity: 1;
-    background-color: #ffffff;
+    background-color: var(--hb-red);
     transform: scale(1.25);
   }
 
