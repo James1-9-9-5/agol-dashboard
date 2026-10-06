@@ -186,8 +186,8 @@ title: Hartley Bay Maintenance Management
   #hb-dashboard .toggle-row-wrap {
     padding: 12px 18px 14px !important;
     margin: 0 !important;
-    background: #ffffff !important;
-    color: var(--hb-ink) !important;
+    background: #2E2E2E !important;
+    color: #ffffff !important;
     border-top: 4px solid var(--hb-red);
   }
   #hb-dashboard .toggle-row {
@@ -200,7 +200,7 @@ title: Hartley Bay Maintenance Management
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    color: var(--hb-ink);
+    color: #ffffff;
     width: auto !important;
     height: auto !important;
     display: inline-flex !important;
@@ -213,7 +213,7 @@ title: Hartley Bay Maintenance Management
   }
   #hb-dashboard .arrow-btn:hover { opacity: 0.55; }
   #hb-dashboard .arrow-btn:focus-visible {
-    outline: 2px solid var(--hb-red);
+    outline: 2px solid #ffffff;
     border-radius: 4px;
   }
   #hb-dashboard .arrow-btn svg {
@@ -247,15 +247,15 @@ title: Hartley Bay Maintenance Management
     padding: 3px;
     background-clip: content-box;
     border-radius: 50%;
-    background-color: var(--hb-ink);
-    opacity: 0.3;
+    background-color: #8C8C8C;
+    opacity: 1;
     cursor: pointer;
     transition: opacity 0.15s ease, transform 0.15s ease;
   }
-  #hb-dashboard .toggle-dots .dot:hover { opacity: 0.6; }
+  #hb-dashboard .toggle-dots .dot:hover { background-color: #BDBDBD; }
   #hb-dashboard .toggle-dots .dot.active {
     opacity: 1;
-    background-color: var(--hb-red);
+    background-color: #ffffff;
     transform: scale(1.25);
   }
 
