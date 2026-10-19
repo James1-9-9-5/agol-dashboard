@@ -120,7 +120,7 @@ title: Hartley Bay Maintenance Management
     align-items: center;
     text-align: center;
     gap: 6px;
-    padding: 32px 18px 22px;
+    padding: 26px 18px 22px;
     cursor: pointer;
     flex: 1 1 auto;
   }
@@ -173,14 +173,33 @@ title: Hartley Bay Maintenance Management
     color: var(--hb-muted);
   }
 
-  /* Lock badge (top left) */
+  /* Card header (matches the navigation bar colours) */
+  #hb-dashboard .card-header {
+    padding: 12px 44px !important;
+    margin: 0 !important;
+    background: #2E2E2E !important;
+    color: #ffffff !important;
+    border-bottom: 4px solid var(--hb-red);
+    text-align: center;
+  }
+  #hb-dashboard .card-header-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    line-height: 1.3;
+    color: #ffffff !important;
+    background: none !important;
+  }
+
+  /* Lock badge (top left, inside header) */
   #hb-dashboard .lock-badge {
     position: absolute;
-    top: 18px;
-    left: 10px;
+    top: 15px;
+    left: 12px;
     width: 18px;
     height: 18px;
-    color: var(--hb-muted);
+    color: #ffffff;
     z-index: 3;
   }
 
@@ -264,7 +283,7 @@ title: Hartley Bay Maintenance Management
   /* Info button + popover */
   #hb-dashboard .info-btn {
     position: absolute;
-    top: 16px;
+    top: 11px;
     right: 8px;
     width: 26px;
     height: 26px;
@@ -291,7 +310,7 @@ title: Hartley Bay Maintenance Management
   }
   #hb-dashboard .info-popover {
     position: absolute;
-    top: 48px;
+    top: 52px;
     right: 8px;
     width: 210px;
     max-width: calc(100% - 16px);
@@ -477,12 +496,13 @@ title: Hartley Bay Maintenance Management
        data-survey-desc="Submit a new general maintenance request or work order."
        data-report-desc="Browse submitted general maintenance requests in a table."
        data-dataset-desc="Query the raw general maintenance dataset.">
+    <div class="card-header"><h3 class="card-header-title">General Maintenance</h3></div>
     <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
     <div class="info-popover"></div>
     <div class="dash-link" tabindex="0" role="link">
       <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-      <div class="dash-title">General Maintenance</div>
+      <div class="dash-title">Dashboard</div>
       <p class="dash-desc">Track general maintenance work orders</p>
     </div>
     <div class="toggle-row-wrap">
@@ -511,12 +531,13 @@ title: Hartley Bay Maintenance Management
        data-report-desc="Browse submitted housing maintenance requests in a table."
        data-dataset-desc="Query the raw housing maintenance dataset."
        data-box-desc="Open supporting housing maintenance files and documents in Box.">
+    <div class="card-header"><h3 class="card-header-title">Housing Maintenance</h3></div>
     <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
     <div class="info-popover"></div>
     <div class="dash-link" tabindex="0" role="link">
       <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-      <div class="dash-title">Housing Maintenance</div>
+      <div class="dash-title">Dashboard</div>
       <p class="dash-desc">Track housing repairs and costs</p>
     </div>
     <div class="toggle-row-wrap">
@@ -543,13 +564,14 @@ title: Hartley Bay Maintenance Management
        data-survey-desc="Submit a new MERRF maintenance request."
        data-report-desc="Browse submitted MERRF maintenance requests in a table."
        data-dataset-desc="Query the raw MERRF maintenance dataset.">
+    <div class="card-header"><h3 class="card-header-title">MERRF Maintenance</h3></div>
     <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
     <div class="info-popover"></div>
     <div class="dash-link" tabindex="0" role="link">
-      <!-- Placeholder icon (life buoy). Swap for one that fits what MERRF covers. -->
+      <!-- Placeholder icon (clipboard). Swap for one that fits what MERRF covers. -->
       <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>
-      <div class="dash-title">MERRF Maintenance</div>
+      <div class="dash-title">Dashboard</div>
       <p class="dash-desc">Track MERRF maintenance and equipment</p>
     </div>
     <div class="toggle-row-wrap">
@@ -572,12 +594,13 @@ title: Hartley Bay Maintenance Management
        data-transactions-url="https://gfnt.maps.arcgis.com/apps/dashboards/a0f07e1d734c4806b95ed1f199beadb8"
        data-inventory-desc="View current stock levels for tracked inventory items."
        data-transactions-desc="View the history of inventory check-ins and check-outs.">
+    <div class="card-header"><h3 class="card-header-title">Inventory</h3></div>
     <svg class="icon lock-badge" viewBox="0 0 24 24" role="img" aria-label="Password required"><title>Password required</title><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <button class="info-btn" type="button" aria-label="More info" aria-haspopup="true" aria-expanded="false">i</button>
     <div class="info-popover"></div>
     <div class="dash-link" tabindex="0" role="link">
       <svg class="icon dash-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/><path d="m7.5 4.27 9 5.15"/></svg>
-      <div class="dash-title">Inventory Tracker</div>
+      <div class="dash-title">Stock Levels</div>
       <p class="dash-desc">Check stock levels and item history</p>
     </div>
     <div class="toggle-row-wrap">
@@ -670,12 +693,12 @@ title: Hartley Bay Maintenance Management
         icon: '<path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>'
       },
       inventory: {
-        title: 'Inventory Levels',
+        title: 'Stock Levels',
         desc: 'Check current stock levels.',
         icon: null /* uses the card's original box icon */
       },
       transactions: {
-        title: 'Inventory Transactions',
+        title: 'Transactions',
         desc: 'See check-ins and check-outs.',
         icon: '<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>'
       }
@@ -713,7 +736,7 @@ title: Hartley Bay Maintenance Management
       var titleEl = card.querySelector('.dash-title');
       var descEl = card.querySelector('.dash-desc');
       var iconEl = card.querySelector('.dash-icon');
-      var baseTitle = titleEl.textContent;
+      var baseTitle = card.querySelector('.card-header-title').textContent;
       var topicIcon = iconEl.innerHTML;
 
       // Wrap the icon and add a small topic badge (not needed on the Inventory card)
@@ -742,7 +765,7 @@ title: Hartley Bay Maintenance Management
         var opt = options[index];
         var v = VIEWS[opt.key];
         modeLabel.textContent = opt.label;
-        titleEl.textContent = v.title || (baseTitle + ' ' + v.suffix);
+        titleEl.textContent = v.title || v.suffix;
         descEl.textContent = v.desc;
         iconEl.innerHTML = v.icon || topicIcon;
         if (popover) {
