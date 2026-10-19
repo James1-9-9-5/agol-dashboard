@@ -175,6 +175,11 @@ title: Hartley Bay Maintenance Management
 
   /* Card header (matches the navigation bar colours) */
   #hb-dashboard .card-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 76px;
     padding: 12px 44px !important;
     margin: 0 !important;
     background: #2E2E2E !important;
